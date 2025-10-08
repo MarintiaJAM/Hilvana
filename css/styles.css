@@ -1,0 +1,444 @@
+/*Importación de fuentes personalizadas desde Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
+
+*{
+    /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
+    y que por default se apliquen estos estilos si no se indica lo contrario */
+    margin: 0; /*Elimina el márgen predeterminado*/
+    padding: 0; /*Elimina el relleno interno predeterminado*/
+    border: 0; /*Elimina cualquier borde predeterminado*/
+    font-size: 100%; /*Mantiene el tamaño de fuente base del navegador (16px por defecto)*/
+    text-align: justify; /*Justifica el texto para darle una apariencia alineada a ambos lados*/
+    color: #453c5c; /*Color de texto predeterminado en tono morado oscuro*/
+    vertical-align: baseline; /*Asegura la alineación vertical de los elementos en línea con la línea base del texto*/
+    box-sizing: border-box; /*Evita que el padding y border afecten el tamaño total del elemento*/
+}
+
+html {
+    scroll-behavior: smooth; /*Desplazamiento suave al hacer clic en enlaces internos*/
+}
+
+/*"CUERPO GENERAL" Estilos base del body*/
+body{
+    text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
+    font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
+    background-color: #fff;
+}
+
+
+/*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
+p{
+    margin-bottom: 40px; /*Agrega un espacio de 40 píxeles entre párrafos*/
+    font-size: 22px; /*Indica que el tamaño de la letra será de 18 pixeles*/
+    color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
+    padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
+}
+
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-center h1 {
+    color:#e0e0e0;
+    font-family:'Garamond';
+    font-size: 38px;
+}
+
+.top-bar-anuncio{
+    background-color: #131313;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    padding: 0%;
+    margin: 0%;
+    height: 35px;
+}
+
+.top-bar-anuncio p{
+    color:#f6f6f6;
+    text-align: center;
+    font-size: 18px;
+    align-items: center;
+    padding: 5px 0px 0px 0px;
+}
+
+
+/*"CUERPO MENÚ" Contenedor principal del menú.*/
+.menu{
+    display: flex; /*Usa flexbox para distribuir los elementos de manera flexible*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
+    width: 100%; /*Ocupa todo el ancho disponible*/
+    max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
+    background-color: #000000; /*Color de fondo azul verdoso*/
+    padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
+    /*box-sizing: border-box; Evita que el padding afecte el tamaño total del elemento*/
+    /*flex-wrap: nowrap; Evita que los elementos se desborden en otra línea*/
+    z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
+}
+
+
+/*"LOGO"*/
+.logo{
+    z-index: 999; /*Asegura que el logo esté por encima de otros elementos*/
+    position: relative;
+    margin-right: auto; /*Empuja el logo hacia la izquierda y permite que los demás elementos ocupen el espacio restante*/
+
+}
+
+/*Ajustes de la imagen del logo*/
+.logo img{
+    width: 70px; /*Define un ancho fijo para la imagen del logo*/
+    height: auto; /*Mantiene la proporción original de la imagen*/
+    border-radius: 50%; /*Hace que la imagen del logo sea circular*/
+}
+
+/*Si la imagen del logo no carga, se mostrará un texto "LOGO"*/
+.logo a{
+    text-decoration: none; /*Elimina el subrayado predeterminado en los enlaces*/
+    color: #fff; /*Color blanco para el texto*/
+    text-transform: uppercase; /*Convierte el texto en máyusculas*/
+    font-size: 20px; /*Tamaño del texto del logo*/
+}
+
+.logo h2{
+    display: none;
+    font-size: 35px;
+    color: #fff;
+    margin-left: 15px;
+    align-items: center;
+}
+
+/*"CUERPO NAVBAR" Estilos de la barra de navegación*/
+
+/*"SECCIONES/LINKS" Contenedor de los elementos de navegación*/
+.navbar{
+    display: flex; /*Usa flexbox para organizar los elementos*/
+    list-style: none; /*Elimina los estilos de lista predeterminados*/
+    margin: 0; /*Elimina márgenes predeterminados*/
+    padding: 0; /*Elimina relleno predeterminado*/
+}
+
+/*Estilos para el botón de menú hamburguesa*/
+.hamburger-btn {
+    width: 40px; /*Ancho del botón*/
+    height: 40px; /*Alto del botón*/
+    background: none; /*Elimina el fondo del botón*/
+    border: none; /*Elimina el borde del botón*/
+   
+}
+
+.hamburger-btn i{
+    color: #fff;
+}
+
+/*"ELEMENTOS DEL MENÚ PRINCIPAL"*/
+
+/*Contenedor de cada elemento del menú*/
+.menu-item {
+    border-bottom: 1px solid #f0f0f0; /*Línea separadora entre elementos*/
+}
+
+.menu-item span{
+    color: #453c5c;
+}
+
+.menu-item i{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+    fill: currentColor;
+}
+
+.menu-label{
+    display: flex; 
+    align-items: center;
+}
+
+
+/*"BARRA DE BÚSQUEDA"*/
+.search-bar {
+    display: flex; /*Alinea los elementos en una fila*/
+    align-items: center; /*Centra los elementos verticalmente*/
+    margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
+    flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+    position: relative;
+}
+
+/*Estilos para el botón de búsqueda*/
+.search-bar button { 
+    padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
+    background-color: #d29d3b; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
+    color: white; /*Color blanco al icono de búsqueda*/
+    border-radius: 50%; /*Hace que el botón sea circular*/
+    cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
+    outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
+}
+.search-bar button i{
+    color: #fff;;
+}
+
+.search-bar button:hover {
+    background-color: #a27a2e; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
+}
+
+.car-shopping button{
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    background-color: #d29d3b; /*Color rosa coral para el fondo*/
+    padding: 10px 10px;
+    border-radius: 50%; /*Bordes redondeados*/
+    cursor: pointer;
+}
+
+.car-shopping button i{
+    color: #fff; 
+}
+
+.car-shopping button:hover{
+    background-color: #a27a2e;
+}
+
+/*"LOGIN/INICIO DE SESIÓN"*/
+
+.Login {
+    display: flex; /*Organiza los elementos en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+}
+
+/*Botón de Inicio de Sesión*/
+.login-button {
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    background-color: #d29d3b; /*Color rosa coral para el fondo*/
+    padding: 10px 11px;
+    border-radius: 50%; /*Bordes redondeados*/
+}
+
+.login-button i{
+    color: white; /*Color blanco para el ícono*/
+}
+
+.login-button span{ 
+    text-align: center;
+}
+
+/*Efecto al pasar el cursor sobre el botón*/
+.login-button:hover {
+    background-color: #a27a2e; /*Cambio de color de fondo al pasar el cursor*/
+}
+
+.favorites button{
+    display: flex; /*Alinea el ícono y el texto en una fila*/
+    align-items: center; /*Alinea verticalmente los elementos*/
+    background-color: #d29d3b; /*Color rosa coral para el fondo*/
+    padding: 10px 11px;
+    border-radius: 50%; /*Bordes redondeados*/
+    cursor: pointer;
+}
+
+.favorites button i{
+    color:#fff;
+}
+
+.favorites button:hover{
+    background-color: #a27a2e;
+}
+
+/*"TOP-BAR" fila horizontal que permite tener el icono de hamburguesa, barra de búsqueda, etc. en una sola fila*/
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header {
+    height: 70vh;/*Define la altura al 60% de la pantalla*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/2436336.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-position: center;  
+    background-size: cover;  
+}
+
+/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
+.container {
+    width: 98%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
+    margin: 0 auto; /*Centra el contenedo horizontalmente*/
+    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
+    background-color: #fff; /*Color amarillo muy claro para el fondo general*/
+    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
+}
+
+
+/*PRODUCTOS DE LA PÁGINA*/
+.producto-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.producto {
+  width: 300px;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+  margin: 10px;
+}
+
+.imagen-container {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.imagen-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.imagen-container .secundaria {
+  opacity: 0;
+}
+
+.imagen-container:hover .secundaria {
+  opacity: 1;
+}
+
+.imagen-container:hover .principal {
+  opacity: 0;
+}
+
+.favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.favorito:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+/* Ícono dentro del botón */
+.favorito i {
+  color: #444;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+/* Cuando está activo (marcado como favorito) */
+.favorito.active i {
+  color: #131313;
+}
+
+
+/* texto debajo */
+.info {
+  margin-top: 10px;
+  align-items: center;
+}
+
+.info h3 {
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.precio {
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+.footer {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: sans-serif;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  flex: 1 1 200px; /* se adapta conforme crece la pantalla */
+
+}
+
+.footer-column h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #000;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+.country-selector a {
+  text-decoration: none;
+  color: #333;
+  margin-right: 10px;
+}
+
+.country-selector a:hover {
+  text-decoration: underline;
+}
+
+

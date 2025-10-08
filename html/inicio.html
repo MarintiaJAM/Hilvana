@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Logo y título que se verá en la pestaña -->
+    <title>JMA HILVANA</title>
+    <link rel="icon" type="image/png" href="../img/logo.jpg">
+    <!-- Enlaces a fuentes y estilos -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+    <!-- Enlace a Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Enlace al css -->
+    <link rel="stylesheet" href="../css/styles.css">
+
+
+</head>
+
+<body>
+    <header>
+        <nav class="top-bar-anuncio">
+            <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
+        </nav>
+         <!-- Ménu de navegación principal-->
+        <nav class="menu" id="Menu">
+            <!-- Botón hamburguesa "☰" animado con 3 líneas que se transforma en "X" -->
+                <button class="hamburger-btn" id="hamburgerBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            <div class="logo"> <!-- Contenedor del logo -->
+                <a href="inicio.html">
+                <img src="../img/logo.jpg" alt="Logo"></a>
+            </div>
+
+
+            <div class="navbar-center">
+                <h1>JMA HILVANA</h1>
+            </div>
+
+            <!-- Fila horizontal que nos servirá para alinear el botoón hamburguesa, 
+            la barra de búsqueda y el inicio de sesión con el responsive-->
+            <div class="top-bar">
+
+                <!-- Barra de búsqueda en la esquina superior derecha -->
+                <div class="search-bar">
+                    <div class="search-container">
+                        <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                </div>
+
+                <div class="car-shopping">
+                   <button type="button" id="car-shopping-btn"><i class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+
+                <!-- Botón de Inicio de Sesión -->
+                <div class="Login">
+                    <a href="#" class="login-button" onclick="toggleLoginModal()">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+
+                <div class="favorites">
+                    <button type="button" id="favorites-btn"><i class="fa-solid fa-heart"></i></button>
+                </div>
+            </div>
+        </nav>    
+    </header>
+
+    <section class="header">
+        <section id="inicio">
+            <h2 class="title"></h2>
+        </section>
+    </section>
+
+
+    <div class="container">
+        <section class="producto-container">
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg" alt="Vkei1" class="imagen principal">
+                    <img src="../img/c78ffdd6-c961-4909-a889-85566237c00e.jpg" alt="Vkei1.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+
+                <div class="info">
+                    <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
+                    <p class="precio">$5300</p>
+                </div>
+            </div>
+
+             <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
+                    <img src="../img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg" alt="Vkei2.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
+                    <p class="precio">$350</p>
+                </div>
+            </div>
+
+             <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg" alt="Vkei3" class="imagen principal">
+                    <img src="../img/a8fdb29f-06f2-45e3-ac2a-4c281dd735de.jpg" alt="Vkei3.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Capa Azul Estilo Vkei V1 y V2</h3>
+                    <p class="precio">$700</p>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
+                    <img src="../img/descarga (5).jpg" alt="Vkei4.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
+                    <p class="precio">$150</p>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg" alt="Vkei1" class="imagen principal">
+                    <img src="../img/c78ffdd6-c961-4909-a889-85566237c00e.jpg" alt="Vkei1.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
+                    <p class="precio">$5300</p>
+                </div>
+            </div>
+
+             <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
+                    <img src="../img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg" alt="Vkei2.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
+                    <p class="precio">$350</p>
+                </div>
+            </div>
+
+             <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg" alt="Vkei3" class="imagen principal">
+                    <img src="../img/a8fdb29f-06f2-45e3-ac2a-4c281dd735de.jpg" alt="Vkei3.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Capa Azul Estilo Vkei V1 y V2</h3>
+                    <p class="precio">$700</p>
+                </div>
+            </div>
+
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
+                    <img src="../img/descarga (5).jpg" alt="Vkei4.1" class="imagen secundaria">
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
+                    </button>
+                </div>
+                <div class="info">
+                    <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
+                    <p class="precio">$150</p>
+                </div>
+            </div>
+
+        </section>
+</div>
+
+
+        <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-column">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help & Contact</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Order Tracking</a></li>
+                    </ul>
+                    </div>
+                    <div class="footer-column">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Corporate Info</a></li>
+                    </ul>
+                    </div>
+                    <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                    </div>
+                </div>
+
+            <div class="footer-bottom">
+                <div class="country-selector">
+                <a href="#">Mexico</a> | <a href="#">Español</a>
+                </div>
+                <div class="copyright">
+                &copy; 2025 JMA HILVANA. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+
+    <script src="../JavaScript/script.js"></script>
+
+</body>
+</html>
