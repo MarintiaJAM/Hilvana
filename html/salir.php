@@ -15,7 +15,7 @@ session_destroy();
 <head>
   <meta charset="UTF-8"> <!-- Soporte para caracteres especiales -->
   <title>Sesión cerrada</title> <!-- Título de la pestaña del navegador -->
-  <link rel="stylesheet" href="estilo.css"> <!-- Enlace a hoja de estilos externa -->
+  <link rel="stylesheet" href="../css/estilo.css"> <!-- Enlace a hoja de estilos externa -->
   <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Adaptación a móviles -->
   <meta http-equiv="refresh" content="3;url=iniciar_sesion.php"> <!-- Redirección automática en 3s -->
 </head>
