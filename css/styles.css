@@ -259,15 +259,16 @@ p{
 }
 
 .header {
-    height: 70vh;/*Define la altura al 60% de la pantalla*/
+    height: 75vh;/*Define la altura al 60% de la pantalla*/
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/2436336.jpg);
+    background-image: url(../img/scarlett-johansson-en-vestido-negro_3840x2400_xtrafondos.com.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat; 
     background-position: center;  
-    background-size: cover;  
+     background-position: top center; /* o prueba bottom center */
+    background-size: cover; 
 }
 
 /*"CONTENIDO PRINCIPAL DE PÁGINA"*/
