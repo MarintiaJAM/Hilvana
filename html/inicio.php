@@ -13,7 +13,7 @@
     <!-- Enlace a Font Awesome para íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Enlace al css -->
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/estilo.css">
 
 
 </head>
@@ -57,7 +57,7 @@
 
                 <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
                         <i class="fas fa-user"></i>
                     </a>
                 </div>
@@ -66,8 +66,10 @@
                     <button type="button" id="favorites-btn"><i class="fa-solid fa-heart"></i></button>
                 </div>
             </div>
-        </nav>    
-            <!-- Menú lateral desplegable -->
+        </nav> 
+        
+        
+            <!-- MENÚ LATERAL DESPLEGABLE -->
     <div id="sideMenu" class="side-menu">
         <button class="close-btn" onclick="toggleSideMenu()"><i class="fas fa-times"></i></button>
        <ul>
