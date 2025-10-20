@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="UTF-8">
   <title>Registro de usuario</title>
-  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="../css/estilo.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
