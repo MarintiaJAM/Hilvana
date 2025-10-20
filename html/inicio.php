@@ -57,7 +57,7 @@
 
                 <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
                         <i class="fas fa-user"></i>
                     </a>
                 </div>
