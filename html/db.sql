@@ -21,3 +21,4 @@ USE mi_base_datos;
 SHOW TABLES;
 DESCRIBE usuarios;
 SELECT * FROM usuarios LIMIT 5;
+
