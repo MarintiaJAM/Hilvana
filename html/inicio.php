@@ -57,7 +57,7 @@
 
                 <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="#" class="login-button" onclick="toggleLoginModal()">
+                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
                         <i class="fas fa-user"></i>
                     </a>
                 </div>
@@ -66,8 +66,22 @@
                     <button type="button" id="favorites-btn"><i class="fa-solid fa-heart"></i></button>
                 </div>
             </div>
-        </nav>    
-    </header>
+        </nav> 
+        
+        
+            <!-- MENÚ LATERAL DESPLEGABLE -->
+    <div id="sideMenu" class="side-menu">
+        <button class="close-btn" onclick="toggleSideMenu()"><i class="fas fa-times"></i></button>
+       <ul>
+           <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+           <li><a href="#"><i class="fas fa-tshirt"></i> Productos</a></li>
+           <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
+           <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+       </ul>
+    </div>
+    <!-- Fondo oscuro al abrir el menú -->
+    <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
+</header>
 
     <section class="header">
         <section id="inicio">
