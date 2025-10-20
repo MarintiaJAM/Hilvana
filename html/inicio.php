@@ -67,7 +67,19 @@
                 </div>
             </div>
         </nav>    
-    </header>
+            <!-- Menú lateral desplegable -->
+    <div id="sideMenu" class="side-menu">
+        <button class="close-btn" onclick="toggleSideMenu()"><i class="fas fa-times"></i></button>
+       <ul>
+           <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+           <li><a href="#"><i class="fas fa-tshirt"></i> Productos</a></li>
+           <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
+           <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+       </ul>
+    </div>
+    <!-- Fondo oscuro al abrir el menú -->
+    <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
+</header>
 
     <section class="header">
         <section id="inicio">
