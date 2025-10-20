@@ -66,8 +66,10 @@
                     <button type="button" id="favorites-btn"><i class="fa-solid fa-heart"></i></button>
                 </div>
             </div>
-        </nav>    
-            <!-- Menú lateral desplegable -->
+        </nav> 
+        
+        
+            <!-- MENÚ LATERAL DESPLEGABLE -->
     <div id="sideMenu" class="side-menu">
         <button class="close-btn" onclick="toggleSideMenu()"><i class="fas fa-times"></i></button>
        <ul>
