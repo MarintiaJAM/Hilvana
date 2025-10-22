@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Enlace al css -->
     <link rel="stylesheet" href="../css/styles.css">
-
+    <link rel="stylesheet" href="../menu lateral css/menu.css">
 
 </head>
 
@@ -250,6 +250,7 @@
         </footer>
 
     <script src="../JavaScript/script.js"></script>
+    <script src="../menujs/jsmenu.js"></script>
 
 </body>
 </html>
