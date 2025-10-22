@@ -32,3 +32,21 @@ const botonesFavorito = document.querySelectorAll('.favorito');
     }
 
     hamburgerBtn.addEventListener('click', toggleSideMenu);
+  const btnSubir = document.getElementById("btnSubir");
+
+  // Mostrar el botón al hacer scroll
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      btnSubir.style.display = "block";
+    } else {
+      btnSubir.style.display = "none";
+    }
+  };
+
+  // Cuando se hace clic, subir al inicio
+  btnSubir.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
