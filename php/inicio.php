@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Enlace al css -->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/boton.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
@@ -90,7 +92,7 @@
     </section>
 
 
-    <div class="container">
+     <div class="container">
         <section class="producto-container">
             <div class="producto">
                 <div class="imagen-container">
@@ -99,13 +101,24 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
 
                 <div class="info">
                     <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
                     <p class="precio">$4000</p>
+                        <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
+
                 </div>
             </div>
+            
 
              <div class="producto">
                 <div class="imagen-container">
@@ -114,10 +127,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                    <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
                     <p class="precio">$350</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -128,10 +150,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Capa Azul Estilo Vkei V1 y V2</h3>
                     <p class="precio">$700</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -142,10 +173,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
                     <p class="precio">$150</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -156,10 +196,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
                     <p class="precio">$5300</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -170,10 +219,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
                     <p class="precio">$350</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -184,10 +242,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Capa Azul Estilo Vkei V1 y V2</h3>
                     <p class="precio">$750</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -198,10 +265,19 @@
                     <button class="favorito">
                         <i class="fa-regular fa-heart"></i> <!-- ícono de corazón -->
                     </button>
+                                        <button class="carrito">
+  <i class="fa-solid fa-cart-shopping"></i>
+</button>
+
                 </div>
                 <div class="info">
                     <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
                     <p class="precio">$150</p>
+                     <form action="agregar_carrito.php" method="POST">
+        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+        <input type="hidden" name="precio" value="4000">
+        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+    </form>
                 </div>
             </div>
 
@@ -248,7 +324,9 @@
                 </div>
             </div>
         </footer>
-
+<button id="btnSubir" title="Volver arriba">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
     <script src="../JavaScript/script.js"></script>
     <script src="../menujs/jsmenu.js"></script>
 

@@ -1,9 +1,9 @@
 <?php
 include 'conexion.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['id'])) {
     $id = $_POST['id'];
-    $sql = "DELETE FROM carrito WHERE id=$id";
+    $sql = "DELETE FROM carrito WHERE id = $id";
     $conn->query($sql);
 }
 
