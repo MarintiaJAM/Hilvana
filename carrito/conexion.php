@@ -1,13 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "jma_hilvana";
+$conexion = mysqli_connect("localhost", "root", "", "hilvana_db");
 
-$conn = new mysqli($servername, $username, $password, $database);
-
-if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
+if (!$conexion) {
+    die("Error al conectar con la base de datos: " . mysqli_connect_error());
 }
 ?>
 

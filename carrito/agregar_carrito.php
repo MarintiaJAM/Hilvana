@@ -1,25 +1,27 @@
 <?php
 session_start();
-include 'conexion.php'; // asegúrate de tener tu archivo de conexión
+include 'conexion.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST['nombre'];
-    $precio = $_POST['precio'];
-    $imagen = $_POST['imagen'];
+// Obtener los datos del producto
+$nombre = $_POST['nombre'];
+$precio = $_POST['precio'];
+$imagen = $_POST['imagen'];
 
-    // Inserta el producto al carrito
-    $sql = "INSERT INTO carrito (nombre, precio, imagen, cantidad)
-            VALUES ('$nombre', '$precio', '$imagen', 1)";
+// Revisar si ya existe ese producto en el carrito
+$check = "SELECT * FROM carrito WHERE nombre='$nombre'";
+$result = mysqli_query($conexion, $check);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>
-            alert('Producto agregado al carrito 🛒');
-            window.location.href='inicio.html';
-        </script>";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-
-    $conn->close();
+if (mysqli_num_rows($result) > 0) {
+    // Si ya existe, solo aumenta la cantidad
+    $update = "UPDATE carrito SET cantidad = cantidad + 1 WHERE nombre='$nombre'";
+    mysqli_query($conexion, $update);
+} else {
+    // Si no existe, lo agrega
+    $insert = "INSERT INTO carrito (nombre, precio, imagen, cantidad) VALUES ('$nombre', '$precio', '$imagen', 1)";
+    mysqli_query($conexion, $insert);
 }
+
+// Redirigir al carrito
+header("Location: carrito.php");
+exit();
 ?>
