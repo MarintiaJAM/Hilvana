@@ -44,7 +44,7 @@ if ($resultado && $resultado->num_rows > 0) {
     <meta charset="UTF-8">
     <title>Buscador - JMA HILVANA</title>
     
-    <link rel="stylesheet" href="buscador css/buscadorcss.css">
+    <link rel="stylesheet" href="../buscador css/buscadorcss.css">
 </head>
     
 <body>

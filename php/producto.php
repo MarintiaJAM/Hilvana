@@ -20,7 +20,7 @@ $producto = $resultado->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <title><?php echo $producto['nombre_producto']; ?> - JMA HILVANA</title>
-    <link rel="stylesheet" href="buscador css/producto.css">
+    <link rel="stylesheet" href="../buscador css/producto.css">
 </head>
 <body>
 

@@ -57,7 +57,7 @@
                 <!-- 🔍 Barra de búsqueda -->
                 <div class="search-bar">
                     <div class="search-container">
-                        <button type="button" id="searchButton" onclick="window.location.href='buscador.php'">
+                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-suggestions" id="searchSuggestions"></div>
