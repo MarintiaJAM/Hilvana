@@ -30,24 +30,3 @@ const botonesFavorito = document.querySelectorAll('.favorito');
       behavior: "smooth"
     });
   });
-
-// Espera a que todo el contenido cargue
-window.addEventListener("scroll", function() {
-    const btn = document.getElementById("btnSubir");
-
-    // Muestra el botón al bajar más de 200px
- if (window.scrollY > 80) {
-
-        btn.style.display = "block";
-    } else {
-        btn.style.display = "none";
-    }
-});
-
-// Acción al hacer clic
-document.getElementById("btnSubir").addEventListener("click", function() {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth" // Desplazamiento suave
-    });
-});

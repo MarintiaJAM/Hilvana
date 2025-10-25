@@ -18,7 +18,9 @@
 
     <!-- Enlaces a tus archivos CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/boton.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
+
 </head>
 
 <body>
@@ -258,11 +260,10 @@
             </div>
             <div class="copyright">
                 &copy; 2025 JMA HILVANA. Todos los derechos reservados.
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- 📜 Scripts de la página -->
     <script src="../JavaScript/script.js"></script>
     <script src="../menujs/jsmenu.js"></script>
     <!-- Botón para subir -->

@@ -479,13 +479,6 @@ BOTÓN DE AÑADIR AL CARRITO
 .carrito:hover i {
   color: white;
 }
-
-/* 
-──────────────────────────────────────────────────────────────
-BOTÓN "IR ARRIBA"
-──────────────────────────────────────────────────────────────
-*/
-
 #btnSubir {
   position: fixed;
   bottom: 30px;
@@ -501,6 +494,7 @@ BOTÓN "IR ARRIBA"
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
+
 #btnSubir:hover {
   background-color: #555;
   transform: scale(1.1);
