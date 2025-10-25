@@ -1,256 +1,258 @@
 /*Importación de fuentes personalizadas desde Google Fonts*/
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
+/* 
+──────────────────────────────────────────────────────────────
+ESTILOS GENERALES - RESETEO Y BASE VISUAL
+──────────────────────────────────────────────────────────────
+*/
 
+/* Resetea los estilos predeterminados del navegador */
 *{
-    /* Este apartado en el codigo del css sirve para resetear todo el estilo del archivo html
-    y que por default se apliquen estos estilos si no se indica lo contrario */
-    margin: 0; /*Elimina el márgen predeterminado*/
-    padding: 0; /*Elimina el relleno interno predeterminado*/
-    border: 0; /*Elimina cualquier borde predeterminado*/
-    font-size: 100%; /*Mantiene el tamaño de fuente base del navegador (16px por defecto)*/
-    text-align: justify; /*Justifica el texto para darle una apariencia alineada a ambos lados*/
-    color: #453c5c; /*Color de texto predeterminado en tono morado oscuro*/
-    vertical-align: baseline; /*Asegura la alineación vertical de los elementos en línea con la línea base del texto*/
-    box-sizing: border-box; /*Evita que el padding y border afecten el tamaño total del elemento*/
+    margin: 0; /* Elimina el margen exterior predeterminado */
+    padding: 0; /* Elimina el relleno interior predeterminado */
+    border: 0; /* Elimina los bordes predeterminados */
+    font-size: 100%; /* Mantiene el tamaño de fuente base del navegador */
+    text-align: justify; /* Justifica todo el texto por defecto */
+    color: #453c5c; /* Color de texto principal en tono morado grisáceo */
+    vertical-align: baseline; /* Alinea los elementos en línea a la base del texto */
+    box-sizing: border-box; /* Incluye padding y borde dentro del ancho total del elemento */
 }
 
+/* Desplazamiento suave al hacer clic en anclas o enlaces internos */
 html {
-    scroll-behavior: smooth; /*Desplazamiento suave al hacer clic en enlaces internos*/
+    scroll-behavior: smooth;
 }
 
-/*"CUERPO GENERAL" Estilos base del body*/
+/* Estilos globales del cuerpo del documento */
 body{
-    text-align: justify; /*Justifica el texto en todo el cuerpo del documento*/
-    font-family: 'Ubuntu', sans-serif; /*Usa la fuente Ubuntu y, en caso de no estar disponible, una fuente genérica sans-serif*/
-    background-color: #fff;
+    text-align: justify; /* Justifica todo el texto del sitio */
+    font-family: 'Ubuntu', sans-serif; /* Fuente moderna y limpia */
+    background-color: #fff; /* Fondo blanco general */
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+TEXTOS Y PÁRRAFOS
+──────────────────────────────────────────────────────────────
+*/
 
-/*"LETRA GENERAL" Estilos predeterminados para la letra y los párrafos*/
+/* Estilo base de los párrafos */
 p{
-    margin-bottom: 40px; /*Agrega un espacio de 40 píxeles entre párrafos*/
-    font-size: 22px; /*Indica que el tamaño de la letra será de 18 pixeles*/
-    color: #453c5c; /*Usa el color de texto predeterminado en tono morado oscuro*/
-    padding: 0 100px; /*Aplica un relleno de 100px a los lados sin afectar la parte superior e inferior*/
+    margin-bottom: 40px; /* Espacio entre párrafos */
+    font-size: 22px; /* Tamaño de fuente */
+    color: #453c5c; /* Color del texto */
+    padding: 0 100px; /* Relleno lateral para márgenes amplios */
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+BARRA SUPERIOR Y NAVEGACIÓN
+──────────────────────────────────────────────────────────────
+*/
 
+/* Centra el título en la barra */
 .navbar-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
+/* Estilo del texto del título principal (marca) */
 .navbar-center h1 {
     color:#e0e0e0;
     font-family:'Garamond';
     font-size: 38px;
 }
 
+/* Barra superior con anuncio (envíos, etc.) */
 .top-bar-anuncio{
-    background-color: #131313;
+    background-color: #131313; /* Fondo negro */
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 100%;
-    padding: 0%;
-    margin: 0%;
     height: 35px;
 }
 
 .top-bar-anuncio p{
-    color:#f6f6f6;
+    color:#f6f6f6; /* Texto blanco */
     text-align: center;
     font-size: 18px;
-    align-items: center;
-    padding: 5px 0px 0px 0px;
+    padding: 5px 0 0 0;
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+MENÚ PRINCIPAL DE NAVEGACIÓN
+──────────────────────────────────────────────────────────────
+*/
 
-/*"CUERPO MENÚ" Contenedor principal del menú.*/
 .menu{
-    display: flex; /*Usa flexbox para distribuir los elementos de manera flexible*/
-    align-items: center; /*Centra los elementos verticalmente*/
-    justify-content: flex-start; /*Distribuye los elementos con espacio entre ellos*/
-    width: 100%; /*Ocupa todo el ancho disponible*/
-    max-width: 100%; /*Evita que el menú supere el ancho de la pantalla con un máximo del 100%*/
-    background-color: #000000; /*Color de fondo azul verdoso*/
-    padding: 0px 25px 0px 25px; /*Agrega espacio a los lados para que no pegue al borde*/
-    /*box-sizing: border-box; Evita que el padding afecte el tamaño total del elemento*/
-    /*flex-wrap: nowrap; Evita que los elementos se desborden en otra línea*/
-    z-index: 1000; /*Asegura que el menú permanezca por encima de otros elementos*/
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #000000; /* Fondo negro elegante */
+    padding: 0 25px;
+    z-index: 1000; /* Mantiene el menú por encima de otros elementos */
 }
 
-
-/*"LOGO"*/
+/* Contenedor del logo */
 .logo{
-    z-index: 999; /*Asegura que el logo esté por encima de otros elementos*/
+    z-index: 999;
     position: relative;
-    margin-right: auto; /*Empuja el logo hacia la izquierda y permite que los demás elementos ocupen el espacio restante*/
-
+    margin-right: auto;
 }
 
-/*Ajustes de la imagen del logo*/
+/* Imagen del logo */
 .logo img{
-    width: 70px; /*Define un ancho fijo para la imagen del logo*/
-    height: auto; /*Mantiene la proporción original de la imagen*/
-    border-radius: 50%; /*Hace que la imagen del logo sea circular*/
+    width: 70px;
+    height: auto;
+    border-radius: 50%; /* Hace el logo circular */
 }
 
-/*Si la imagen del logo no carga, se mostrará un texto "LOGO"*/
+/* Enlace del logo */
 .logo a{
-    text-decoration: none; /*Elimina el subrayado predeterminado en los enlaces*/
-    color: #fff; /*Color blanco para el texto*/
-    text-transform: uppercase; /*Convierte el texto en máyusculas*/
-    font-size: 20px; /*Tamaño del texto del logo*/
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
 }
 
+/* Texto del logo (en caso de que no haya imagen) */
 .logo h2{
     display: none;
     font-size: 35px;
     color: #fff;
     margin-left: 15px;
-    align-items: center;
 }
 
-/*"CUERPO NAVBAR" Estilos de la barra de navegación*/
-
-/*"SECCIONES/LINKS" Contenedor de los elementos de navegación*/
+/* Lista principal del menú */
 .navbar{
-    display: flex; /*Usa flexbox para organizar los elementos*/
-    list-style: none; /*Elimina los estilos de lista predeterminados*/
-    margin: 0; /*Elimina márgenes predeterminados*/
-    padding: 0; /*Elimina relleno predeterminado*/
+    display: flex;
+    list-style: none;
 }
 
-/*Estilos para el botón de menú hamburguesa*/
+/* Botón menú hamburguesa (para responsive) */
 .hamburger-btn {
-    width: 40px; /*Ancho del botón*/
-    height: 40px; /*Alto del botón*/
-    background: none; /*Elimina el fondo del botón*/
-    border: none; /*Elimina el borde del botón*/
-   
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
 }
-
 .hamburger-btn i{
     color: #fff;
 }
 
-/*"ELEMENTOS DEL MENÚ PRINCIPAL"*/
-
-/*Contenedor de cada elemento del menú*/
+/* Elementos del menú */
 .menu-item {
-    border-bottom: 1px solid #f0f0f0; /*Línea separadora entre elementos*/
+    border-bottom: 1px solid #f0f0f0;
 }
-
 .menu-item span{
     color: #453c5c;
 }
-
 .menu-item i{
     width: 20px;
     height: 20px;
     margin-right: 15px;
-    fill: currentColor;
 }
-
 .menu-label{
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+BARRA DE BÚSQUEDA
+──────────────────────────────────────────────────────────────
+*/
 
-/*"BARRA DE BÚSQUEDA"*/
 .search-bar {
-    display: flex; /*Alinea los elementos en una fila*/
-    align-items: center; /*Centra los elementos verticalmente*/
-    margin-left: 20px; /*Espacio entre el menú y la barra de búsqueda*/
-    flex-shrink: 0; /*Evita que la barra se reduzca en pantallas pequeñas*/
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    flex-shrink: 0;
     position: relative;
 }
 
-/*Estilos para el botón de búsqueda*/
+/* Botón de búsqueda */
 .search-bar button { 
-    padding: 8px 10px; /*Espaciado interno del botón de búsqueda*/
-    background-color: #d29d3b; /*Color coral al recuadro donde se encuentra el icono de búsqueda*/
-    color: white; /*Color blanco al icono de búsqueda*/
-    border-radius: 50%; /*Hace que el botón sea circular*/
-    cursor: pointer; /*Convierte el cursor en un pointer indicar que es un elemento clickeable*/
-    outline: none; /*Elimina la línea exterior que se presenta al expandir el buscador*/
+    padding: 8px 10px;
+    background-color: #d29d3b; /* Dorado elegante */
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
 }
 .search-bar button i{
-    color: #fff;;
+    color: #fff;
 }
 
+/* Efecto hover del botón */
 .search-bar button:hover {
-    background-color: #a27a2e; /*Le da una ligera sombra al botón del buscador al pasar el cursor sobre este*/
+    background-color: #a27a2e; /* Dorado más oscuro */
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+BOTONES DE CARRITO, LOGIN Y FAVORITOS
+──────────────────────────────────────────────────────────────
+*/
+
+/* Botón del carrito */
 .car-shopping button{
-    display: flex; /*Alinea el ícono y el texto en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
-    background-color: #d29d3b; /*Color rosa coral para el fondo*/
-    padding: 10px 10px;
-    border-radius: 50%; /*Bordes redondeados*/
+    display: flex;
+    align-items: center;
+    background-color: #d29d3b;
+    padding: 10px;
+    border-radius: 50%;
     cursor: pointer;
 }
-
 .car-shopping button i{
     color: #fff; 
 }
-
 .car-shopping button:hover{
     background-color: #a27a2e;
 }
 
-/*"LOGIN/INICIO DE SESIÓN"*/
-
+/* Contenedor de login */
 .Login {
-    display: flex; /*Organiza los elementos en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
+    display: flex;
+    align-items: center;
 }
 
-/*Botón de Inicio de Sesión*/
+/* Botón de inicio de sesión */
 .login-button {
-    display: flex; /*Alinea el ícono y el texto en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
-    background-color: #d29d3b; /*Color rosa coral para el fondo*/
+    display: flex;
+    align-items: center;
+    background-color: #d29d3b;
     padding: 10px 11px;
-    border-radius: 50%; /*Bordes redondeados*/
+    border-radius: 50%;
 }
-
 .login-button i{
-    color: white; /*Color blanco para el ícono*/
+    color: white;
 }
-
-.login-button span{ 
-    text-align: center;
-}
-
-/*Efecto al pasar el cursor sobre el botón*/
 .login-button:hover {
-    background-color: #a27a2e; /*Cambio de color de fondo al pasar el cursor*/
+    background-color: #a27a2e;
 }
 
+/* Botón de favoritos */
 .favorites button{
-    display: flex; /*Alinea el ícono y el texto en una fila*/
-    align-items: center; /*Alinea verticalmente los elementos*/
-    background-color: #d29d3b; /*Color rosa coral para el fondo*/
+    display: flex;
+    align-items: center;
+    background-color: #d29d3b;
     padding: 10px 11px;
-    border-radius: 50%; /*Bordes redondeados*/
+    border-radius: 50%;
     cursor: pointer;
 }
-
 .favorites button i{
     color:#fff;
 }
-
 .favorites button:hover{
     background-color: #a27a2e;
 }
 
-/*"TOP-BAR" fila horizontal que permite tener el icono de hamburguesa, barra de búsqueda, etc. en una sola fila*/
+/* Fila que agrupa hamburguesa, buscador, usuario, carrito */
 .top-bar {
   display: flex;
   align-items: center;
@@ -258,30 +260,39 @@ p{
   gap: 20px;
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+ENCABEZADO CON IMAGEN PRINCIPAL
+──────────────────────────────────────────────────────────────
+*/
+
 .header {
-    height: 75vh;/*Define la altura al 60% de la pantalla*/
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url(../img/scarlett-johansson-en-vestido-negro_3840x2400_xtrafondos.com.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-position: center;  
-     background-position: top center; /* o prueba bottom center */
-    background-size: cover; 
+    background-attachment: fixed; /* Efecto parallax */
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
 }
 
-/*"CONTENIDO PRINCIPAL DE PÁGINA"*/
+/* 
+──────────────────────────────────────────────────────────────
+CONTENIDO PRINCIPAL Y PRODUCTOS
+──────────────────────────────────────────────────────────────
+*/
+
 .container {
-    width: 98%; /*Se reduce el ancho para que ocupe solo el 80% de la pantalla*/
-    margin: 0 auto; /*Centra el contenedo horizontalmente*/
-    padding: 5px 0 0 0; /*Agrega un margen interior superior*/
-    background-color: #fff; /*Color amarillo muy claro para el fondo general*/
-    min-height: 100%; /*Asegura que el contenedor tenga al menos la altura completa*/
+    width: 98%;
+    margin: 0 auto;
+    padding-top: 5px;
+    background-color: #fff;
+    min-height: 100%;
 }
 
-
-/*PRODUCTOS DE LA PÁGINA*/
+/* Contenedor general de los productos */
 .producto-container{
     display: flex;
     flex-wrap: wrap;
@@ -290,6 +301,7 @@ p{
     padding: 20px;
 }
 
+/* Tarjeta individual del producto */
 .producto {
   width: 300px;
   font-family: 'Arial', sans-serif;
@@ -297,6 +309,7 @@ p{
   margin: 10px;
 }
 
+/* Contenedor de imágenes del producto */
 .imagen-container {
   position: relative;
   width: 100%;
@@ -305,6 +318,7 @@ p{
   border-radius: 5px;
 }
 
+/* Imágenes principales y secundarias */
 .imagen-container img {
   position: absolute;
   width: 100%;
@@ -313,18 +327,20 @@ p{
   transition: opacity 0.5s ease;
 }
 
+/* Segunda imagen (oculta por defecto) */
 .imagen-container .secundaria {
   opacity: 0;
 }
 
+/* Al pasar el mouse, cambia entre imágenes */
 .imagen-container:hover .secundaria {
   opacity: 1;
 }
-
 .imagen-container:hover .principal {
   opacity: 0;
 }
 
+/* Botón de favorito sobre la imagen */
 .favorito {
   position: absolute;
   top: 10px;
@@ -336,45 +352,40 @@ p{
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .favorito:hover {
   background: rgba(255, 255, 255, 1);
   transform: scale(1.1);
 }
-
-/* Ícono dentro del botón */
 .favorito i {
   color: #444;
   font-size: 18px;
   transition: color 0.3s ease;
 }
-
-/* Cuando está activo (marcado como favorito) */
 .favorito.active i {
   color: #131313;
 }
 
-
-/* texto debajo */
+/* Información del producto */
 .info {
   margin-top: 10px;
-  align-items: center;
+  text-align: center;
 }
-
 .info h3 {
   font-size: 14px;
   font-weight: 400;
   color: #111111;
-  margin: 5px 0;
-  text-align: center;
 }
-
 .precio {
   font-weight: bold;
   font-size: 15px;
   text-align: center;
 }
 
+/* 
+──────────────────────────────────────────────────────────────
+PIE DE PÁGINA
+──────────────────────────────────────────────────────────────
+*/
 
 .footer {
   background-color: #f5f5f5;
@@ -392,8 +403,7 @@ p{
 }
 
 .footer-column {
-  flex: 1 1 200px; /* se adapta conforme crece la pantalla */
-
+  flex: 1 1 200px;
 }
 
 .footer-column h4 {
@@ -405,7 +415,6 @@ p{
 .footer-column ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .footer-column ul li {
@@ -418,11 +427,11 @@ p{
   font-size: 13px;
   transition: color 0.3s;
 }
-
 .footer-column ul li a:hover {
   color: #000;
 }
 
+/* Parte inferior del footer */
 .footer-bottom {
   border-top: 1px solid #ddd;
   padding-top: 20px;
@@ -432,15 +441,21 @@ p{
   font-size: 12px;
 }
 
+/* Selector de país e idioma */
 .country-selector a {
   text-decoration: none;
   color: #333;
   margin-right: 10px;
 }
-
 .country-selector a:hover {
   text-decoration: underline;
 }
+
+/* 
+──────────────────────────────────────────────────────────────
+BOTÓN DE AÑADIR AL CARRITO
+──────────────────────────────────────────────────────────────
+*/
 
 .carrito {
   position: absolute;
@@ -454,16 +469,33 @@ p{
   transition: all 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
-
 .carrito i {
-  color: #222;
+  color: #d29d3b;
   font-size: 18px;
 }
-
 .carrito:hover {
   background-color: #111;
 }
-
 .carrito:hover i {
   color: white;
+}
+#btnSubir {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none; /* Oculto al inicio */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+#btnSubir:hover {
+  background-color: #555;
+  transform: scale(1.1);
 }

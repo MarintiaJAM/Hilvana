@@ -23,23 +23,10 @@ const botonesFavorito = document.querySelectorAll('.favorito');
     }
   };
 
-
-  const btnSubir = document.getElementById("btnSubir");
-
-// Mostrar el botón cuando se hace scroll
-window.addEventListener("scroll", () => {
-  if (document.documentElement.scrollTop > 200) {
-    btnSubir.style.display = "block";
-  } else {
-    btnSubir.style.display = "none";
-  }
-});
-
-// Al hacer clic, volver arriba con suavidad
-btnSubir.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  // Cuando se hace clic, subir al inicio
+  btnSubir.addEventListener("click", function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
   });
-});
-
