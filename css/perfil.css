@@ -1,0 +1,174 @@
+.user-profile {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  display: block;
+  margin: 0 auto;
+}
+
+.foto-container {
+  position: relative;
+  text-align: center;
+}
+
+.cambiar-foto-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #444;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.cambiar-foto-btn:hover {
+  background-color: #666;
+}
+
+
+.user-info h2 {
+  margin: 0;
+  color: #333;
+}
+
+.profile-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+
+/*ESTILOS PARA BOTÓN DE ADMINISTRADORES Y GENERAL*/
+.admin-panel {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.admin-btn {
+  display: inline-block;
+  background-color: #b8860b;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.admin-btn:hover {
+  background-color: #daa520;
+}
+
+
+.tab-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.tab-btn.active {
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tab-content li {
+  background: #f9f9f9;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+}
+
+
+.profile-edit {
+  margin-top: 30px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.form-editar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.btn-guardar {
+  align-self: flex-start;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-guardar:hover {
+  background: #0056b3;
+}
+
+
+/*CONFIRMACIÓN DE ACTUALIZACIÓN*/
+.alerta-exito {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
