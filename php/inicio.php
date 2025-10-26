@@ -71,11 +71,17 @@
                     </a>
                 </div>
 
-                <!-- 👤 Botón de inicio de sesión -->
+
+                <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
                 </div>
 
                 <!-- ❤️ Botón de favoritos -->
