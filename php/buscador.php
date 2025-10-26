@@ -117,4 +117,3 @@ echo "<p>Total de productos encontrados: " . $resultado->num_rows . "</p>";
     <?php endif; ?>
 </body>
 </html>
-
