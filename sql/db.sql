@@ -12,6 +12,8 @@ CREATE TABLE usuarios (
   nombre           VARCHAR(100)      NOT NULL,
   correo           VARCHAR(120)      NOT NULL UNIQUE,
   contrasena_hash  VARCHAR(255)      NOT NULL,
+  rol              ENUM('usuario','admin') DEFAULT 'usuario',
+  foto             VARCHAR(255)     DEFAULT 'img/ivan_perfil.jpg',
   creado_en        TIMESTAMP         NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB
   DEFAULT CHARSET=utf8mb4
@@ -21,4 +23,3 @@ USE mi_base_datos;
 SHOW TABLES;
 DESCRIBE usuarios;
 SELECT * FROM usuarios LIMIT 5;
-
