@@ -1,5 +1,11 @@
 <?php
-require_once "conexion.php";
+require_once "conexion_usuarios.php";
+
+/* 🔒 Protección: solo administradores pueden acceder */
+if (!isset($_SESSION["usuario_id"]) || $_SESSION["usuario_rol"] !== "admin") {
+    header("Location: acceso_denegado.php"); // o privado.php
+    exit;
+}
 
 /* Validar parámetro id */
 $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
