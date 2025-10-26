@@ -1,3 +1,11 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once "conexion_usuarios.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
