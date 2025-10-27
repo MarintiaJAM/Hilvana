@@ -231,7 +231,7 @@ require_once "conexion_usuarios.php";
         </section>
     </div>
 
-    <!-- 👠 PIE DE PÁGINA -->
+    <!-- PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
             <!-- Columna 1 -->
