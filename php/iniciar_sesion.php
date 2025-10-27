@@ -1,5 +1,5 @@
 <?php
-require_once "conexion.php";
+require_once "conexion_usuarios.php";
 
 $mensaje = "";
 
@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $mensaje = "El correo no es válido.";
     } else {
-        $sql = "SELECT id, nombre, correo, contrasena_hash FROM usuarios WHERE correo = ?";
+        $sql = "SELECT id, nombre, correo, contrasena_hash, rol FROM usuarios WHERE correo = ?";
         $sentencia = $conexion->prepare($sql);
 
         if ($sentencia) {
@@ -26,8 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $_SESSION["usuario_id"]     = $usuario["id"];
                     $_SESSION["usuario_nombre"] = $usuario["nombre"];
                     $_SESSION["usuario_correo"] = $usuario["correo"];
+                    $_SESSION['usuario_rol']   = $usuario['rol'];
 
-                    header("Location: privado.php");
+                    header("Location: perfil.php");
                     exit;
                 } else {
                     $mensaje = "La contraseña es incorrecta.";

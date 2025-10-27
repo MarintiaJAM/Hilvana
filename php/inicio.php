@@ -1,3 +1,11 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once "conexion_usuarios.php";
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -57,7 +65,7 @@
                 <!-- 🔍 Barra de búsqueda -->
                 <div class="search-bar">
                     <div class="search-container">
-                        <button type="button" id="searchButton">
+                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-suggestions" id="searchSuggestions"></div>
@@ -71,11 +79,17 @@
                     </a>
                 </div>
 
-                <!-- 👤 Botón de inicio de sesión -->
+
+                <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
                 </div>
 
                 <!-- ❤️ Botón de favoritos -->

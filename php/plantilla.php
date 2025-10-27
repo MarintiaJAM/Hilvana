@@ -1,5 +1,5 @@
 <?php
-require_once "conexion.php"; // si la página necesita conexión/sesión
+require_once "conexion_usuarios.php"; // si la página necesita conexión/sesión
 ?>
 <!DOCTYPE html>
 <html lang="es">

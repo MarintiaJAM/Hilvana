@@ -1,6 +1,6 @@
 <?php
 // Incluye el archivo de conexión/configuración (asegura sesión iniciada o disponible)
-require_once "conexion.php";
+require_once "conexion_usuarios.php";
 
 /* Destruir la sesión */
 // Limpia manualmente el arreglo de sesión
@@ -28,11 +28,11 @@ session_destroy();
       <p class="sub">Has salido del sistema correctamente.</p> <!-- Subtítulo de confirmación -->
 
       <p class="mensaje mensaje--ok">
-        Serás redirigido en unos segundos a la página de inicio de sesión.
+        Serás redirigido en unos segundos a la página de inicio.
       </p> <!-- Mensaje de estado (estilo OK, probablemente verde) -->
 
       <div class="barra-acciones"> <!-- Barra de acciones -->
-        <a class="boton" href="iniciar_sesion.php">Ir ahora</a> <!-- Botón para ir al login manualmente -->
+        <a class="boton" href="inicio.php">Ir ahora</a> <!-- Botón para ir al login manualmente -->
       </div>
     </div>
   </div>
