@@ -26,7 +26,6 @@ require_once "conexion_usuarios.php";
 
     <!-- Enlaces a tus archivos CSS -->
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/boton.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
 
 </head>
@@ -49,7 +48,7 @@ require_once "conexion_usuarios.php";
 
             <!-- 🔹 Logo de la tienda -->
             <div class="logo">
-                <a href="inicio.html">
+                <a href="inicio.php">
                     <img src="../img/logo.jpg" alt="Logo">
                 </a>
             </div>
@@ -280,10 +279,6 @@ require_once "conexion_usuarios.php";
 
     <script src="../JavaScript/script.js"></script>
     <script src="../menujs/jsmenu.js"></script>
-    <!-- Botón para subir -->
-<button id="btnSubir" title="Ir arriba">
-  ↑
-</button>
 
 
 </body>
