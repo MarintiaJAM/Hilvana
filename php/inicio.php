@@ -217,7 +217,7 @@
         </section>
     </div>
 
-    <!-- 👠 PIE DE PÁGINA -->
+    <!-- PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
             <!-- Columna 1 -->
