@@ -33,7 +33,7 @@ if ($rol_usuario === "admin") {
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Zona privada</title>
+  <title>Admin Panel</title>
   <link rel="stylesheet" href="../css/estilo.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

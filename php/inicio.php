@@ -13,11 +13,11 @@ require_once "conexion_usuarios.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Logo y título que aparece en la pestaña del navegador -->
+    <!-- 🪶 Logo y título que aparece en la pestaña del navegador -->
     <title>JMA HILVANA</title>
     <link rel="icon" type="image/png" href="../img/logo.jpg">
 
-    <!-- Fuentes y estilos -->
+    <!-- 💅 Fuentes y estilos -->
     <!-- Fuente principal desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
 
@@ -31,14 +31,14 @@ require_once "conexion_usuarios.php";
 </head>
 
 <body>
-    <!--  ENCABEZADO PRINCIPAL -->
+    <!-- 🧭 ENCABEZADO PRINCIPAL -->
     <header>
-        <!-- Barra superior con anuncio -->
+        <!-- 🔸 Barra superior con anuncio -->
         <nav class="top-bar-anuncio">
             <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
         </nav>
 
-        <!-- Menú de navegación principal -->
+        <!-- 🔸 Menú de navegación principal -->
         <nav class="menu" id="Menu">
 
             <!-- Botón hamburguesa (☰) para abrir menú lateral en dispositivos pequeños -->
@@ -46,46 +46,52 @@ require_once "conexion_usuarios.php";
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!--  Logo de la tienda -->
+            <!-- 🔹 Logo de la tienda -->
             <div class="logo">
                 <a href="inicio.php">
                     <img src="../img/logo.jpg" alt="Logo">
                 </a>
             </div>
 
-            <!-- Título centrado en la barra -->
+            <!-- 🔹 Título centrado en la barra -->
             <div class="navbar-center">
                 <h1>JMA HILVANA</h1>
             </div>
 
-            <!-- Sección superior con búsqueda, carrito y login -->
+            <!-- 🔹 Sección superior con búsqueda, carrito y login -->
             <div class="top-bar">
 
-                <!-- Barra de búsqueda -->
+                <!-- 🔍 Barra de búsqueda -->
                 <div class="search-bar">
                     <div class="search-container">
-                        <button type="button" id="searchButton">
+                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-suggestions" id="searchSuggestions"></div>
                     </div>
                 </div>
 
-                <!--  Icono de carrito, enlaza con carrito.php -->
+                <!-- 🛒 Icono de carrito, enlaza con carrito.php -->
                 <div class="car-shopping">
                     <a href="carrito.php" id="car-shopping-btn">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                 </div>
 
-                <!-- Botón de inicio de sesión -->
+
+                <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
                 </div>
 
-                <!--  Botón de favoritos -->
+                <!-- ❤️ Botón de favoritos -->
                 <div class="favorites">
                     <button type="button" id="favorites-btn">
                         <i class="fa-solid fa-heart"></i>
@@ -93,8 +99,8 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
         </nav>
-
-        <!-- MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
+        
+        <!-- 🔸 MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
         <div id="sideMenu" class="side-menu">
             <button class="close-btn" onclick="toggleSideMenu()">
                 <i class="fas fa-times"></i>
@@ -111,14 +117,14 @@ require_once "conexion_usuarios.php";
         <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
     </header>
 
-    <!-- Sección de encabezado visual (puede usarse para banners o imágenes de portada) -->
+    <!-- 🖼️ Sección de encabezado visual (puede usarse para banners o imágenes de portada) -->
     <section class="header">
         <section id="inicio">
             <h2 class="title"></h2>
         </section>
     </section>
 
-    <!-- SECCIÓN DE PRODUCTOS -->
+    <!-- 🧵 SECCIÓN DE PRODUCTOS -->
     <div class="container">
         <section class="producto-container">
 
@@ -134,7 +140,7 @@ require_once "conexion_usuarios.php";
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <!--  Formulario para agregar al carrito -->
+                    <!-- 🛒 Formulario para agregar al carrito -->
                     <form action="agregar_carrito.php" method="POST">
                         <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
                         <input type="hidden" name="precio" value="4000">
@@ -152,7 +158,7 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
 
-            <!-- PRODUCTO 2 -->
+            <!-- 🛍️ PRODUCTO 2 -->
             <div class="producto">
                 <div class="imagen-container">
                     <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
@@ -175,7 +181,7 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
 
-            <!--  PRODUCTO 3 -->
+            <!-- 🛍️ PRODUCTO 3 -->
             <div class="producto">
                 <div class="imagen-container">
                     <img src="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg" alt="Vkei3" class="imagen principal">
@@ -198,7 +204,7 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
 
-            <!-- PRODUCTO 4 -->
+            <!-- 🛍️ PRODUCTO 4 -->
             <div class="producto">
                 <div class="imagen-container">
                     <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
@@ -224,7 +230,7 @@ require_once "conexion_usuarios.php";
         </section>
     </div>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- 👠 PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
             <!-- Columna 1 -->

@@ -1,9 +1,14 @@
 <?php
 require_once "conexion_usuarios.php";
 
-/* 🔒 Protección: solo administradores pueden acceder */
-if (!isset($_SESSION["usuario_id"]) || $_SESSION["usuario_rol"] !== "admin") {
-    header("Location: acceso_denegado.php"); // o privado.php, si prefieres
+/* 🔐 Iniciar sesión si no está iniciada */
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+/* 🔒 Protección general */
+if (!isset($_SESSION["usuario_id"])) {
+    header("Location: iniciar_sesion.php");
     exit;
 }
 
@@ -13,8 +18,13 @@ if ($id <= 0) {
     die("ID inválido.");
 }
 
+/* Solo el propio usuario o el admin pueden acceder */
+if ($_SESSION["usuario_id"] !== $id && $_SESSION["usuario_rol"] !== "admin") {
+    header("Location: acceso_denegado.php");
+    exit;
+}
+
 /* Obtener datos actuales */
-$usuario = null;
 $sql_sel = "SELECT id, nombre, correo FROM usuarios WHERE id = ?";
 $sentencia_sel = $conexion->prepare($sql_sel);
 if (!$sentencia_sel) { die("Error al preparar la consulta: " . $conexion->error); }
@@ -28,11 +38,12 @@ if ($resultado_sel && $resultado_sel->num_rows === 1) {
 }
 $sentencia_sel->close();
 
-/* Procesar POST */
 $mensaje = "";
+
+/* Procesar envío del formulario */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $nombre           = trim($_POST["nombre"] ?? "");
-    $correo           = trim($_POST["correo"] ?? "");
+    $nombre = trim($_POST["nombre"] ?? "");
+    $correo = trim($_POST["correo"] ?? "");
     $contrasena_nueva = $_POST["contrasena_nueva"] ?? "";
 
     if ($nombre === "" || $correo === "") {
@@ -40,7 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
         $mensaje = "El correo no es válido.";
     } else {
-        if ($contrasena_nueva !== "") {
+        /* Si el usuario es admin y envió una contraseña nueva */
+        if ($_SESSION["usuario_rol"] === "admin" && $contrasena_nueva !== "") {
             $contrasena_hash = password_hash($contrasena_nueva, PASSWORD_DEFAULT);
             $sql_up = "UPDATE usuarios SET nombre=?, correo=?, contrasena_hash=? WHERE id=?";
             $sentencia_up = $conexion->prepare($sql_up);
@@ -48,8 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sentencia_up->bind_param("sssi", $nombre, $correo, $contrasena_hash, $id);
                 if ($sentencia_up->execute()) {
                     $mensaje = "Usuario actualizado con nueva contraseña.";
-                    $usuario["nombre"] = $nombre;
-                    $usuario["correo"] = $correo;
                 } else {
                     $mensaje = $conexion->errno === 1062
                         ? "El correo ya está registrado en otro usuario."
@@ -58,14 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sentencia_up->close();
             }
         } else {
+            /* Actualización normal (sin cambiar contraseña) */
             $sql_up = "UPDATE usuarios SET nombre=?, correo=? WHERE id=?";
             $sentencia_up = $conexion->prepare($sql_up);
             if ($sentencia_up) {
                 $sentencia_up->bind_param("ssi", $nombre, $correo, $id);
                 if ($sentencia_up->execute()) {
-                    $mensaje = "Usuario actualizado.";
-                    $usuario["nombre"] = $nombre;
-                    $usuario["correo"] = $correo;
+                    $mensaje = "Usuario actualizado correctamente.";
                 } else {
                     $mensaje = $conexion->errno === 1062
                         ? "El correo ya está registrado en otro usuario."
@@ -74,6 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $sentencia_up->close();
             }
         }
+        // Actualiza los datos en pantalla
+        $usuario["nombre"] = $nombre;
+        $usuario["correo"] = $correo;
     }
 }
 ?>
@@ -91,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="encabezado">
         <h1>Editar usuario</h1>
       </div>
-      <p class="sub">Modifica la información del usuario seleccionado.</p>
+      <p class="sub">Modifica tu información personal.</p>
 
       <?php if ($mensaje !== ""): ?>
         <p class="mensaje"><?= htmlspecialchars($mensaje) ?></p>
@@ -110,15 +122,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                  value="<?= htmlspecialchars($usuario['correo']) ?>">
         </div>
 
-        <div class="campo">
-          <label for="contrasena_nueva">Contraseña nueva (opcional)</label>
-          <input id="contrasena_nueva" name="contrasena_nueva" type="password" minlength="6"
-                 placeholder="Déjalo vacío para no cambiarla">
-        </div>
+        <?php if ($_SESSION["usuario_rol"] === "admin"): ?>
+          <div class="campo">
+            <label for="contrasena_nueva">Contraseña nueva (opcional)</label>
+            <input id="contrasena_nueva" name="contrasena_nueva" type="password" minlength="6"
+                   placeholder="Solo visible para administradores">
+          </div>
+        <?php endif; ?>
 
         <div class="barra-acciones">
           <button class="boton" type="submit">Guardar cambios</button>
-          <a class="boton boton-sec" href="privado.php">Volver</a>
+          <a class="boton boton-sec" href="perfil.php">Volver</a>
         </div>
       </form>
     </div>

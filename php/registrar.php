@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <div class="encabezado">
         <h1>Registro de usuario</h1>
       </div>
-      <p class="sub">Crea una cuenta para acceder a la zona privada.</p>
+      <p class="sub">Crea una cuenta para acceder a tu perfil y mucho más.</p>
 
       <!-- Mensaje -->
       <?php if ($mensaje !== ""): ?>
