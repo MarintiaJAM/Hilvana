@@ -3,13 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
 
 *{
-    /*margin: 0; /* Elimina el margen exterior predeterminado */
+    margin: 0; /* Elimina el margen exterior predeterminado */
     /*padding: 0; /* Elimina el relleno interior predeterminado */
     /*border: 0; /* Elimina los bordes predeterminados */
     /*font-size: 100%; /* Mantiene el tamaño de fuente base del navegador */
-    text-align: center; /* Justifica todo el texto por defecto */
-    /*color: #453c5c; /* Color de texto principal en tono morado grisáceo */
-    /*vertical-align: baseline; /* Alinea los elementos en línea a la base del texto */
+    text-align: justify; /* Justifica todo el texto por defecto */
+    color: #453c5c; /* Color de texto principal en tono morado grisáceo */
+    vertical-align: baseline; /* Alinea los elementos en línea a la base del texto */
     box-sizing: border-box; /* Incluye padding y borde dentro del ancho total del elemento */
 }
 
@@ -63,6 +63,10 @@ MENÚ PRINCIPAL DE NAVEGACIÓN
     background-color: #000000; /* Fondo negro elegante */
     padding: 0 25px;
     z-index: 1000; /* Mantiene el menú por encima de otros elementos */
+}
+
+.logopestaña{
+    border-radius: 50%;
 }
 
 /* Contenedor del logo */

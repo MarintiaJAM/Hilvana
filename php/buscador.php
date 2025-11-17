@@ -61,7 +61,7 @@ if ($resultado && $resultado->num_rows > 0) {
 <body>
 <header>
         <nav class="top-bar-anuncio">
-            <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
+            <p>Habilita nuestro bot para ayudarte en tu busqueda</p>
         </nav>
 
         <nav class="menu" id="Menu">
