@@ -43,12 +43,91 @@ if ($resultado && $resultado->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <title>Buscador - JMA HILVANA</title>
+    <link rel="icon" type="image/png" href="../img/logo.jpg">
+
+    <!-- 💅 Fuentes y estilos -->
+    <!-- Fuente principal desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+
+    <!-- Librería de íconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <link rel="stylesheet" href="../buscador css/buscadorcss.css">
+    <link rel="stylesheet" href="../buscador css/header.css">
+    <link rel="stylesheet" href="../menu lateral css/menu.css">
+
 </head>
     
 <body>
-    <h1>Buscador de productos - JMA HILVANA</h1>
+<header>
+        <nav class="top-bar-anuncio">
+            <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
+        </nav>
+
+        <nav class="menu" id="Menu">
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="logo">
+                <a href="inicio.php">
+                    <img src="../img/logo.jpg" alt="Logo">
+                </a>
+            </div>
+
+            <div class="navbar-center">
+                <h1>JMA HILVANA</h1>
+            </div>
+
+            <div class="top-bar">
+                <div class="favorites">
+                    <button type="button" id="favorites-btn">
+                        <a href="inicio.php" class="favorites-button">
+                        <i class="fas fa-home"></i>
+                        </a>
+                    </button>
+                </div>
+
+                <div class="car-shopping">
+                    <a href="carrito.php" id="car-shopping-btn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+
+                <div class="Login">
+                    <a href="registrar.php" class="login-button">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+
+                <div class="favorites">
+                    <button type="button" id="favorites-btn">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div id="sideMenu" class="side-menu">
+            <button class="close-btn" onclick="toggleSideMenu()">
+                <i class="fas fa-times"></i>
+            </button>
+            <ul>
+                <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Guia de tallas</a></li>
+                <li><a href="#"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Problemas</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Terminos y condiciones</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+            </ul>
+        </div>
+        <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
+    </header>
+
+</br></br></br>
+<!--Buscador-->
+    <h1>Buscador de productos - JMA HILVANA</h1> </br></br>
     <form method="get" action="buscador.php">
         <input type="text" name="query" placeholder="Buscar por nombre o descripción..." value="<?php echo htmlspecialchars($query); ?>">
 
@@ -105,15 +184,18 @@ if ($resultado && $resultado->num_rows > 0) {
                 <?php endforeach; ?>
             </div>
             
+                </br></br></br>
             <?php
 $sql = "SELECT * FROM productos";
 $resultado = $conexion->query($sql);
 
-echo "<p>Total de productos encontrados: " . $resultado->num_rows . "</p>";
+echo "<p>Total de productos en nuestra tienda: " . $resultado->num_rows . "</p>";
 ?>
         <?php else: ?>
             <p>No se encontraron resultados.</p>
         <?php endif; ?>
     <?php endif; ?>
 </body>
+<script src="../menujs/jsmenu.js"></script>
+
 </html>

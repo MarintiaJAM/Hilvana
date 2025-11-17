@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
 
+
 body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #f9f9f9;
@@ -68,9 +69,6 @@ button:hover {
     color: rgb(58, 204, 0);
 }
 
-/*Header*/
-
-/*fin del header*/
 
 /*imagenes*/
 .imagen-container {
@@ -129,3 +127,4 @@ button:hover {
 .ver-btn:hover {
     background-color: #444;
 }
+

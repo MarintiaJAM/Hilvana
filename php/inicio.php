@@ -108,9 +108,12 @@ require_once "conexion_usuarios.php";
             </button>
             <ul>
                 <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-tshirt"></i> Productos</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Guia de tallas</a></li>
+                <li><a href="#"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Problemas</a></li>
                 <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Terminos y condiciones</a></li>
+                <li><a href="#"><i class="fas fa-info-circle"></i> Privacidad</a></li>
             </ul>
         </div>
 
