@@ -14,7 +14,7 @@ ESTILOS GENERALES - RESETEO Y BASE VISUAL
     border: 0; /* Elimina los bordes predeterminados */
     font-size: 100%; /* Mantiene el tamaño de fuente base del navegador */
     text-align: justify; /* Justifica todo el texto por defecto */
-    color: #453c5c; /* Color de texto principal en tono morado grisáceo */
+    color: #4d2b64; /* Color de texto principal en tono morado grisáceo */
     vertical-align: baseline; /* Alinea los elementos en línea a la base del texto */
     box-sizing: border-box; /* Incluye padding y borde dentro del ancho total del elemento */
 }

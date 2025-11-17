@@ -26,7 +26,6 @@ require_once "conexion_usuarios.php";
 
     <!-- Enlaces a tus archivos CSS -->
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/boton.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
 
 </head>
@@ -49,7 +48,7 @@ require_once "conexion_usuarios.php";
 
             <!-- 🔹 Logo de la tienda -->
             <div class="logo">
-                <a href="inicio.html">
+                <a href="inicio.php">
                     <img src="../img/logo.jpg" alt="Logo">
                 </a>
             </div>
@@ -100,7 +99,7 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
         </nav>
-
+        
         <!-- 🔸 MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
         <div id="sideMenu" class="side-menu">
             <button class="close-btn" onclick="toggleSideMenu()">
@@ -234,7 +233,7 @@ require_once "conexion_usuarios.php";
         </section>
     </div>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- 👠 PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
             <!-- Columna 1 -->
@@ -283,10 +282,6 @@ require_once "conexion_usuarios.php";
 
     <script src="../JavaScript/script.js"></script>
     <script src="../menujs/jsmenu.js"></script>
-    <!-- Botón para subir -->
-<button id="btnSubir" title="Ir arriba">
-  ↑
-</button>
 
 
 </body>
