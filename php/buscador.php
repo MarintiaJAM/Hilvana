@@ -56,6 +56,16 @@ if ($resultado && $resultado->num_rows > 0) {
     <link rel="stylesheet" href="../buscador css/header.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
 
+    <!--vinculacion con el Bot-->
+    <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/08/00/20250408004514-XCWJKZK6.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css">
+   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </head>
     
 <body>
@@ -120,6 +130,11 @@ if ($resultado && $resultado->num_rows > 0) {
                 <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
                 <li><a href="#"><i class="fas fa-info-circle"></i> Terminos y condiciones</a></li>
                 <li><a href="#"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+                <div class="Bot" id="Habilitar_bot">
+<section>
+    <button onclick="Habilitar_bot();" id="boton_bot">Habilitar bot</button>
+</section>
+</div>
             </ul>
         </div>
         <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
@@ -197,5 +212,6 @@ echo "<p>Total de productos en nuestra tienda: " . $resultado->num_rows . "</p>"
     <?php endif; ?>
 </body>
 <script src="../menujs/jsmenu.js"></script>
+<script src="../JavaScript/bot.js"></script>
 
 </html>
