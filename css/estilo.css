@@ -1,84 +1,186 @@
-/*ESTILOS PARA INICIO DE SESIÓN, REGISTRO Y RELACIONADOS...*/
-/* --------- Base --------- */
-:root{
-  --fondo:#f6f8fb;
-  --card:#ffffff;
-  --borde:#e6eaf0;
-  --texto:#1f2d3d;
-  --texto-sec:#5a6b7b;
-  --primario:#0b5cab;
-  --primario-osc:#084a8c;
-  --ok:#2e7d32;
-  --alerta:#c62828;
-  --focus:#6aa9ff;
-  --sombra:0 6px 16px rgba(15, 23, 42, .08);
+/* ============================================================
+   ESTILOS PARA INICIO DE SESIÓN, REGISTRO Y RELACIONADOS
+   ============================================================ */
+
+/* === REGLAS BASE === */
+* {
+  box-sizing: border-box;
 }
 
-*{box-sizing:border-box}
-html{font-size:16px}
-body{
-  margin:0; padding:24px;
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  line-height:1.55; color:var(--texto); background:var(--fondo);
+html {
+  font-size: 16px;
 }
 
-/* --------- Layout simple --------- */
-.contenedor{max-width:880px; margin:0 auto}
-.tarjeta{
-  background:var(--card); border:1px solid var(--borde);
-  border-radius:14px; box-shadow:var(--sombra); padding:22px; margin-bottom:18px;
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.55;
+  color: #101010;              /* var(--texto) */
+  background: #ffffff;         /* var(--fondo) */
 }
-.encabezado{display:flex; align-items:center; gap:12px; margin-bottom:8px}
-.encabezado h1,.encabezado h2{margin:0; color:var(--primario)}
-.sub{color:var(--texto-sec); margin:6px 0 0}
 
-/* --------- Formularios --------- */
-form{display:grid; gap:14px; margin-top:10px}
-.campo{display:grid; gap:8px}
-label{font-weight:600}
+/* === ESTRUCTURA === */
+.contenedor {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.tarjeta {
+  background: #fff;         /* var(--card) */
+  border: 1px solid #e6eaf0;   /* var(--borde) */
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .08); /* var(--sombra) */
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.encabezado h1,
+.encabezado h2 {
+  margin: 0;
+  color: #dcb142;              /* var(--primario) */
+}
+
+.sub {
+  color: #101010;              /* var(--texto-sec) */
+  margin: 6px 0 0;
+}
+
+/* === FORMULARIOS === */
+form {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.campo {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  font-weight: 600;
+}
+
 input[type="text"],
 input[type="email"],
-input[type="password"]{
-  padding:10px 12px; border:1px solid var(--borde); border-radius:10px;
-  background:#fff; color:var(--texto);
-}
-input:focus{
-  outline:3px solid var(--focus);
-  border-color:var(--primario);
+input[type="password"] {
+  padding: 10px 12px;
+  border: 1px solid #e6eaf0;   /* var(--borde) */
+  border-radius: 10px;
+  background: #fff;
+  color: #b8860b;              /* var(--texto) */
 }
 
-/* --------- Botones --------- */
-.barra-acciones{display:flex; gap:10px; flex-wrap:wrap}
-.boton{
-  appearance:none; border:0; cursor:pointer;
-  padding:10px 14px; border-radius:10px; font-weight:600;
-  background:var(--primario); color:#fff; box-shadow:var(--sombra);
+input:focus {
+  outline: 3px solid #6aa9ff;  /* var(--focus) */
+  border-color: #daa520;       /* var(--primario) */
 }
-.boton:hover{background:var(--primario-osc)}
-.boton-sec{
-  background:#eef2f7; color:var(--texto);
-}
-.boton-sec:hover{background:#e5ebf3}
 
-/* --------- Mensajes --------- */
-.mensaje{
-  border:1px solid var(--borde); background:#f3f7ff; color:#073b74;
-  padding:10px 12px; border-radius:10px;
+/* === BOTONES === */
+.barra-acciones {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.mensaje--ok{background:#eef8f0; color:var(--ok)}
-.mensaje--error{background:#fdeeee; color:var(--alerta)}
 
-/* --------- Tablas --------- */
-.tabla{
-  width:100%; border-collapse:separate; border-spacing:0; background:#fff;
-  border:1px solid var(--borde); border-radius:12px; overflow:hidden;
+.boton {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: #dcb142;         /* var(--primario) */
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, .08);
 }
-.tabla th,.tabla td{padding:12px 14px; text-align:left}
-.tabla thead th{background:#f0f4ff; color:#002b67; font-weight:700}
-.tabla tbody tr+tr td{border-top:1px solid var(--borde)}
-.filas-acciones a{margin-right:10px}
 
-/* --------- Utilidades --------- */
-.hr{height:1px; background:var(--borde); border:0; margin:14px 0}
-.nav a{margin-right:12px; color:var(--primario); text-decoration:none; font-weight:600}
-.nav a:hover{text-decoration:underline}
+.boton:hover {
+  background: #b8860b;         /* var(--primario-osc) */
+}
+
+.boton-sec {
+  background: #eef2f7;
+  color: #c79822;              /* var(--texto) */
+}
+
+.boton-sec:hover {
+  background: #e5ebf3;
+}
+
+/* === MENSAJES DE ESTADO === */
+.mensaje {
+  border: 1px solid #e6eaf0;   /* var(--borde) */
+  background: #f3f7ff;
+  color: #dcb142;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.mensaje--ok {
+  background: #eef8f0;
+  color: #519c54;              /* var(--ok) */
+}
+
+.mensaje--error {
+  background: #fdeeee;
+  color: #c62828;              /* var(--alerta) */
+}
+
+/* === TABLAS === */
+.tabla {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border: 1px solid #e6eaf0;   /* var(--borde) */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabla th,
+.tabla td {
+  padding: 12px 14px;
+  text-align: left;
+}
+
+.tabla thead th {
+  background: #f0f4ff;
+  color: #b8860b;
+  font-weight: 700;
+}
+
+.tabla tbody tr + tr td {
+  border-top: 1px solid #e6eaf0; /* var(--borde) */
+}
+
+.filas-acciones a {
+  margin-right: 10px;
+}
+
+/* === UTILIDADES === */
+.hr {
+  height: 1px;
+  background: #e6eaf0;          /* var(--borde) */
+  border: 0;
+  margin: 14px 0;
+}
+
+.nav a {
+  margin-right: 12px;
+  color: #c79822;               /* var(--primario) */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
