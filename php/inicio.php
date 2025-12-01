@@ -221,11 +221,55 @@ require_once "conexion_usuarios.php";
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </form>
-                </div>
-
+                    </div>
                 <div class="info">
                     <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
                     <p class="precio">$150</p>
+                </div>
+            </div>
+
+
+            <!-- 🛍️ PRODUCTO 5 -->
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/raisinghellcamisa1.webp" alt="camisa1" class="imagen principal">
+                    <img src="../img/raisinghellcamisa2.webp" alt="camisa1.1" class="imagen secundaria">
+                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Playera Raising Hell">
+                        <input type="hidden" name="precio" value="350">
+                        <input type="hidden" name="imagen" value="../img/raisinghellcamisa1.webp">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="info">
+                    <h3>Playera Raising Hell de Stranger Things</h3>
+                    <p class="precio">$350</p>
+                </div>
+            </div>
+
+            <!-- 🛍️ PRODUCTO 6 -->
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/pantalon2.png" alt="pantalon1" class="imagen principal">
+                    <img src="../img/pantalon1.png" alt="pantalon1.1" class="imagen secundaria">
+                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Pantalones vaqueros vintage desgastados">
+                        <input type="hidden" name="precio" value="750">
+                        <input type="hidden" name="imagen" value="../img/pantalon2.png">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="info">
+                    <h3>Pantalones vaqueros vintage desgastados</h3>
+                    <p class="precio">$750</p>
                 </div>
             </div>
 

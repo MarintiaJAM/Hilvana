@@ -126,3 +126,20 @@ button:hover {
     background-color: #444;
 }
 
+:root {
+  --color-primary: #3498db; /* tu color original */
+  --spacing-md: 16px;       /* tu espaciado original */
+}
+
+.product img:first-child {
+  display: block;
+}
+.product img:last-child {
+  display: none;
+}
+.product:hover img:first-child {
+  display: none;
+}
+.product:hover img:last-child {
+  display: block;
+}
