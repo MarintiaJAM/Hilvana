@@ -144,3 +144,20 @@ button:disabled,
 .seleccion { 
     margin-top: 16px;
 }
+.comprar-btn {
+    background-color: #000;   /* Fondo negro */
+    color: #fff;              /* Texto blanco */
+    border: none;             /* Sin borde */
+    padding: 10px 16px;       /* Espaciado interno */
+    font-size: 1em;           /* Tamaño de texto */
+    font-weight: bold;        /* Texto en negrita */
+    border-radius: 6px;       /* Bordes redondeados */
+    cursor: pointer;          /* Cursor tipo botón */
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.comprar-btn:hover {
+    background-color: #222;   /* Color más claro al pasar el mouse */
+}

@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #000;
+    border-bottom: 2px solid #b8860b; /* dorado */
+    padding-bottom: 5px;
+}
+
+.productos {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.producto {
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background: #fff;
+    transition: transform 0.2s ease;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    border-color: #b8860b;
+}
+
+.producto img {
+    width: 100%;
+    border-bottom: 2px solid #000;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin: 5px 0;
+    color: #000;
+}
+
+.producto .precio {
+    margin: 0;
+    color: #b8860b; /* dorado */
+    font-weight: bold;
+}
+
+.totales {
+    margin: 20px 0;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.totales p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.totales strong {
+    font-size: 18px;
+    color: #000;
+}
+
+form {
+    max-width: 500px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.botones {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.btn {
+    background: #000;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background: #b8860b; /* dorado */
+    color: #000;
+}
+
+.aviso {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.aviso p {
+    margin-bottom: 20px;
+}

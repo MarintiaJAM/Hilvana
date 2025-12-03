@@ -98,6 +98,12 @@ if (!empty($producto['imagen_secundaria'])) {
 
         <button type="submit" class="carrito-btn">Agregar al carrito</button>
     </form>
+            <!---- Botón de compra directa ---->
+    <form method="get" action="../php/checkout.php">
+    <input type="hidden" name="id_producto" value="<?php echo (int)$producto['id_producto']; ?>">
+    <button type="submit" class="comprar-btn">Comprar</button>
+    </form>
+
 
     <a href="buscador.php" class="volver-btn">← Volver al buscador</a>
 </div>
