@@ -1,186 +1,196 @@
 /* ============================================================
-   ESTILOS PARA INICIO DE SESIÓN, REGISTRO Y RELACIONADOS
+   ESTILO PREMIUM VERTICAL PARA LOGIN/REGISTRO
    ============================================================ */
 
-/* === REGLAS BASE === */
+/* === BASE === */
 * {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 16px;
-}
-
 body {
   margin: 0;
-  padding: 24px;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  line-height: 1.55;
-  color: #101010;              /* var(--texto) */
-  background: #ffffff;         /* var(--fondo) */
+  padding: 30px;
+  font-family: "Montserrat", "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #111;
 }
 
 /* === ESTRUCTURA === */
 .contenedor {
-  max-width: 880px;
+  max-width: 600px;            /* más estrecho para look vertical */
   margin: 0 auto;
 }
 
 .tarjeta {
-  background: #fff;         /* var(--card) */
-  border: 1px solid #e6eaf0;   /* var(--borde) */
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, .08); /* var(--sombra) */
-  padding: 22px;
-  margin-bottom: 18px;
+  width: 100%;        /* asegura que aproveche el nuevo ancho */
+  max-width: 600px;   /* mantiene proporción vertical sin hacerse horizontal */
+  background: #fff;
+  border: 1px solid rgba(200, 164, 76, 0.28); /* dorado suave */
+  border-radius: 20px;
+
+  /* tarjeta más alta y tipo "caja vertical" */
+  padding: 40px 34px;
+  margin: 40px auto;
+
+  /* sombra más dramática pero elegante */
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.08),
+    0 5px 10px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;         /* centrar contenido vertical */
+  text-align: center;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* === ENCABEZADO === */
 .encabezado {
   display: flex;
+  flex-direction: column;      /* vertical */
   align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 6px;
+  margin-bottom: 20px;
 }
 
 .encabezado h1,
 .encabezado h2 {
   margin: 0;
-  color: #dcb142;              /* var(--primario) */
+  color: #c8a44c;              /* dorado premium */
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .sub {
-  color: #101010;              /* var(--texto-sec) */
-  margin: 6px 0 0;
+  color: #444;
+  font-weight: 500;
 }
 
 /* === FORMULARIOS === */
 form {
+  width: 100%;                 /* para inputs más largos */
   display: grid;
-  gap: 14px;
-  margin-top: 10px;
+  gap: 18px;
+  margin-top: 12px;
 }
 
 .campo {
+  text-align: left;
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 label {
   font-weight: 600;
+  color: #000;
+  letter-spacing: 0.5px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  padding: 10px 12px;
-  border: 1px solid #e6eaf0;   /* var(--borde) */
-  border-radius: 10px;
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(200, 164, 76, 0.35);
+  border-radius: 14px;
   background: #fff;
-  color: #b8860b;              /* var(--texto) */
+  color: #111;
+  transition: border 0.25s ease, box-shadow 0.25s ease;
 }
 
 input:focus {
-  outline: 3px solid #6aa9ff;  /* var(--focus) */
-  border-color: #daa520;       /* var(--primario) */
+  outline: none;
+  border-color: #c8a44c;
+  box-shadow: 0 0 8px rgba(200, 164, 76, 0.6);
 }
 
-/* === BOTONES === */
+/* === BOTONES (VERTICALES) === */
 .barra-acciones {
   display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;  /* vertical */
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .boton {
   appearance: none;
-  border: 0;
   cursor: pointer;
-  padding: 10px 14px;
-  border-radius: 10px;
-  font-weight: 600;
-  background: #dcb142;         /* var(--primario) */
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(15, 23, 42, .08);
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 0;
+
+  background: linear-gradient(135deg, #d4af37, #c89b2c);
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .10);
+  transition: 0.3s ease;
 }
 
 .boton:hover {
-  background: #b8860b;         /* var(--primario-osc) */
+  background: linear-gradient(135deg, #c89b2c, #b38720);
+  transform: translateY(-2px);
 }
 
 .boton-sec {
-  background: #eef2f7;
-  color: #c79822;              /* var(--texto) */
+  background: #111;
+  color: #f2d485;
 }
 
 .boton-sec:hover {
-  background: #e5ebf3;
+  background: #000;
 }
 
-/* === MENSAJES DE ESTADO === */
+/* === MENSAJES === */
 .mensaje {
-  border: 1px solid #e6eaf0;   /* var(--borde) */
-  background: #f3f7ff;
-  color: #dcb142;
-  padding: 10px 12px;
-  border-radius: 10px;
-}
-
-.mensaje--ok {
-  background: #eef8f0;
-  color: #519c54;              /* var(--ok) */
-}
-
-.mensaje--error {
-  background: #fdeeee;
-  color: #c62828;              /* var(--alerta) */
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 164, 76, 0.35);
+  background: #fffaf0;
+  color: #b8860b;
+  font-weight: 600;
 }
 
 /* === TABLAS === */
 .tabla {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: #fff;
-  border: 1px solid #e6eaf0;   /* var(--borde) */
+  border: 1px solid rgba(200, 164, 76, 0.35);
   border-radius: 12px;
   overflow: hidden;
 }
 
-.tabla th,
-.tabla td {
-  padding: 12px 14px;
-  text-align: left;
-}
-
 .tabla thead th {
-  background: #f0f4ff;
-  color: #b8860b;
-  font-weight: 700;
-}
-
-.tabla tbody tr + tr td {
-  border-top: 1px solid #e6eaf0; /* var(--borde) */
-}
-
-.filas-acciones a {
-  margin-right: 10px;
+  background: #fffaf0;
+  color: #ccaa3b;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
 }
 
 /* === UTILIDADES === */
 .hr {
   height: 1px;
-  background: #e6eaf0;          /* var(--borde) */
-  border: 0;
-  margin: 14px 0;
+  background: rgba(200, 164, 76, 0.35);
+  margin: 20px 0;
 }
 
 .nav a {
-  margin-right: 12px;
-  color: #c79822;               /* var(--primario) */
+  color: #c8a44c;
   text-decoration: none;
   font-weight: 600;
+  margin: 0 10px;
 }
-
 .nav a:hover {
   text-decoration: underline;
 }

@@ -281,23 +281,20 @@ require_once "conexion_usuarios.php";
         <div class="footer-top">
             <!-- Columna 1 -->
             <div class="footer-column">
-                <h4>Customer Service</h4>
+                <h4>Servicio al cliente</h4>
                 <ul>
-                    <li><a href="#">Help & Contact</a></li>
-                    <li><a href="#">Returns & Exchanges</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Ayuda y contacto</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Pedidos</a></li>
                 </ul>
             </div>
 
             <!-- Columna 2 -->
             <div class="footer-column">
-                <h4>About Us</h4>
+                <h4>Sobre Nosotros</h4>
                 <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Corporate Info</a></li>
+                    <li><a href="#">Nuestra historia</a></li>
+                    <li><a href="#">Información de la corporación</a></li>
                 </ul>
             </div>
 
@@ -305,8 +302,8 @@ require_once "conexion_usuarios.php";
             <div class="footer-column">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
                     <li><a href="#">Cookies</a></li>
                 </ul>
             </div>
