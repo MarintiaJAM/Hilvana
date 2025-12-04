@@ -1,4 +1,11 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once "conexion_usuarios.php";
+
 $conexion = new mysqli("localhost", "root", "", "tienda_ropa");
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
@@ -104,16 +111,6 @@ if ($resultado && $resultado->num_rows > 0) {
             <!-- 🔹 Sección superior con búsqueda, carrito y login -->
             <div class="top-bar">
 
-                <!-- 🔍 Barra de búsqueda -->
-                <div class="search-bar">
-                    <div class="search-container">
-                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-suggestions" id="searchSuggestions"></div>
-                    </div>
-                </div>
-
                 <!-- 🛒 Icono de carrito, enlaza con carrito.php -->
                 <div class="car-shopping">
                     <a href="carrito.php" id="car-shopping-btn">
@@ -121,10 +118,16 @@ if ($resultado && $resultado->num_rows > 0) {
                     </a>
                 </div>
 
+                <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="registrar.php" class="login-button">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
                 </div>
 
                 <div class="favorites">
@@ -209,9 +212,11 @@ if ($resultado && $resultado->num_rows > 0) {
                         </div>
                         <div class="info">
                             <h3><?php echo $producto['nombre_producto']; ?></h3>
-                            <p><?php echo $producto['descripcion']; ?></p>
+                            <p><?php echo nl2br($producto['descripcion']); ?></p>
                             <p class="precio">$<?php echo number_format($producto['precio'], 2); ?></p>
-                            <a href="producto.php?id=<?php echo $producto['id_producto']; ?>" class="ver-btn">Ver</a>
+                            <div class="btn-ver">
+                                <a href="producto.php?id=<?php echo $producto['id_producto']; ?>" class="ver-btn">Ver</a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
