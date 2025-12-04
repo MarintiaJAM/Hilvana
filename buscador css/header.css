@@ -31,19 +31,6 @@ body{
     background-color: #fff; /* Fondo blanco general */
 }
 
-/* 
-──────────────────────────────────────────────────────────────
-TEXTOS Y PÁRRAFOS
-──────────────────────────────────────────────────────────────
-*/
-
-/* Estilo base de los párrafos */
-p{
-    margin-bottom: 40px; /* Espacio entre párrafos */
-    font-size: 22px; /* Tamaño de fuente */
-    color: #453c5c; /* Color del texto */
-    padding: 0 100px; /* Relleno lateral para márgenes amplios */
-}
 
 /* 
 ──────────────────────────────────────────────────────────────
@@ -133,15 +120,25 @@ MENÚ PRINCIPAL DE NAVEGACIÓN
     list-style: none;
 }
 
-/* Botón menú hamburguesa (para responsive) */
-.hamburger-btn {
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
+/* Ícono */
+.hamburger-btn i {
+    color: #dcb13b; /* dorado */
+    font-size: 22px;
+    transition: 0.2s;
+    border-radius: 50%;
 }
-.hamburger-btn i{
-    color: #fff;
+
+/* Hover igual que los otros botones */
+.hamburger-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 28px 55px rgba(0, 0, 0, 0.10),
+        0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+.side-menu i{
+  color:#dcb13b;
 }
 
 /* Elementos del menú */
@@ -161,37 +158,6 @@ MENÚ PRINCIPAL DE NAVEGACIÓN
     align-items: center;
 }
 
-/* 
-──────────────────────────────────────────────────────────────
-BARRA DE BÚSQUEDA
-──────────────────────────────────────────────────────────────
-*/
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    margin-left: 20px;
-    flex-shrink: 0;
-    position: relative;
-}
-
-/* Botón de búsqueda */
-.search-bar button { 
-    padding: 8px 10px;
-    background-color: #d29d3b; /* Dorado elegante */
-    color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    outline: none;
-}
-.search-bar button i{
-    color: #fff;
-}
-
-/* Efecto hover del botón */
-.search-bar button:hover {
-    background-color: #a27a2e; /* Dorado más oscuro */
-}
 
 /* 
 ──────────────────────────────────────────────────────────────
@@ -203,17 +169,16 @@ BOTONES DE CARRITO, LOGIN Y FAVORITOS
 .car-shopping button{
     display: flex;
     align-items: center;
-    background-color: #d29d3b;
+    background-color: #000000;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
 }
 .car-shopping button i{
-    color: #fff; 
+    color: #dcb13b; 
 }
-.car-shopping button:hover{
-    background-color: #a27a2e;
-}
+
 
 /* Contenedor de login */
 .Login {
@@ -225,32 +190,80 @@ BOTONES DE CARRITO, LOGIN Y FAVORITOS
 .login-button {
     display: flex;
     align-items: center;
-    background-color: #d29d3b;
+    background-color: #000000;
     padding: 10px 11px;
     border-radius: 50%;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
 }
 .login-button i{
-    color: white;
-}
-.login-button:hover {
-    background-color: #a27a2e;
+    color: #dcb13d;
 }
 
 /* Botón de favoritos */
 .favorites button{
     display: flex;
     align-items: center;
-    background-color: #d29d3b;
+    background-color: #000000;
     padding: 10px 11px;
     border-radius: 50%;
     cursor: pointer;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
 }
 .favorites button i{
-    color:#fff;
+    color:#dcb13b;
 }
 .favorites button:hover{
-    background-color: #a27a2e;
+     transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
 }
+
+
+/* Modificando los colores para los botones que se ven grises */
+.car-shopping a {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(235, 185, 58, 0.585);
+}
+
+.car-shopping a i {
+    color: #dcb13b;
+}
+
+.car-shopping a:hover {
+   transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+.Login a {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 11px;
+    border-radius: 50%;
+    border: 2px solid rgba(235, 185, 58, 0.585);
+}
+
+.Login a i {
+    color: #dcb13b;
+}
+
+.Login a:hover {
+     transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
 
 /* Fila que agrupa hamburguesa, buscador, usuario, carrito */
 .top-bar {
