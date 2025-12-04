@@ -1,102 +1,112 @@
 
-/* ====== CARRITO MODERNO ====== */
+/* ====== CARRITO PREMIUM ====== */
 .carrito-container {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 1000px;
+    margin: 70px auto;
+    padding: 30px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
+/* Tarjeta individual */
 .producto-card {
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: white;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    border: 1px solid #d4af37;
+    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+    transition: transform .2s ease;
 }
 
 .producto-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
 }
 
+/* Imagen */
 .producto-info {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 18px;
 }
 
 .producto-info img {
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 12px;
+    border: 2px solid #d4af37;
 }
 
-.producto-texto {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
+/* nombre + precio */
 .producto-texto h3 {
-    margin: 0;
     font-size: 18px;
-    font-weight: 600;
-    color: #333;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 6px;
 }
 
 .producto-texto span {
-    font-size: 16px;
-    color: #8a6d3b;
+    color: #d4af37;
+    font-size: 17px;
     font-weight: bold;
-    margin-top: 5px;
 }
 
+/*** BOTONES ***/
 .btn-eliminar {
-    background-color: #b30000;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+    background: transparent;
+    padding: 9px 15px;
     border-radius: 8px;
-    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: 0.3s;
+    font-weight: 600;
 }
 
 .btn-eliminar:hover {
-    background-color: #ff1a1a;
+    background: #d9534f;
+    color: white;
 }
 
-/* Botones inferiores */
-.carrito-botones {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+/* Contenedor de botones finales */
+.carrito-footer {
+    text-align: right;
+    margin-top: 35px;
 }
 
-.btn-vaciar {
-    border: 2px solid #b8860b;
-    background: transparent;
-    color: #b8860b;
-    padding: 10px 20px;
-    border-radius: 8px;
+/* Botón seguir comprando */
+.btn-seguir {
+    background: #d4af37;
+    border: none;
+    color: black;
+    padding: 10px 24px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.3s;
+    font-weight: bold;
+    transition: 0.3s ease;
+    margin-right: 10px;
+}
+
+.btn-seguir:hover {
+    background: #f0d96e;
+}
+
+/* Botón Vaciar */
+.btn-vaciar {
+    border: 2px solid #d4af37;
+    background: transparent;
+    color: #d4af37;
+    padding: 10px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn-vaciar:hover {
-    background: #b8860b;
-    color: #fff;
-}
-
-.btn-seguir {
-    background-color: #b8860b;
+    background: #d4af37;
     color: white;
     border: none;
     padding: 10px 25px;
@@ -108,4 +118,44 @@
 
 .btn-seguir:hover {
     background-color: #d4af37;
+}
+/* CONTENEDOR DE BOTONES DE FAVORITOS */
+.favoritos-botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+/* Botón Vaciar Favoritos */
+.favoritos-botones .btn-vaciar {
+    background-color: #000; /* negro elegante */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.favoritos-botones .btn-vaciar:hover {
+    background-color: #333;
+}
+
+/* Botón Seguir Comprando */
+.favoritos-botones .btn-seguir {
+    background-color: #d4af37; /* dorado */
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.favoritos-botones .btn-seguir:hover {
+    background-color: #bb9930;
 }

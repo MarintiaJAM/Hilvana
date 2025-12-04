@@ -40,8 +40,13 @@ if (isset($_POST['nombre']) && isset($_POST['precio']) && isset($_POST['imagen']
     }
 }
 
-// Redirigimos al usuario a la página desde la que vino (por ejemplo, la tienda o catálogo)
-header("Location: " . $_SERVER["HTTP_REFERER"]);
+if (!empty($_SERVER["HTTP_REFERER"])) {
+    header("Location: " . $_SERVER["HTTP_REFERER"]);
+} else {
+    header("Location: incio.php"); // o la página que tú quieras
+}
+exit();
+
 
 // Finalizamos el script para evitar que se ejecute cualquier otra cosa
 exit();

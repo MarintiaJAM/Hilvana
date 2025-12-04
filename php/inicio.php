@@ -13,11 +13,11 @@ require_once "conexion_usuarios.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Logo y título que aparece en la pestaña del navegador -->
+    <!-- 🪶 Logo y título que aparece en la pestaña del navegador -->
     <title>JMA HILVANA</title>
     <link rel="icon" type="image/png" href="../img/logo.jpg">
 
-    <!-- Fuentes y estilos -->
+    <!-- 💅 Fuentes y estilos -->
     <!-- Fuente principal desde Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
 
@@ -31,14 +31,14 @@ require_once "conexion_usuarios.php";
 </head>
 
 <body>
-    <!--  ENCABEZADO PRINCIPAL -->
+    <!-- 🧭 ENCABEZADO PRINCIPAL -->
     <header>
-        <!-- Barra superior con anuncio -->
+        <!-- 🔸 Barra superior con anuncio -->
         <nav class="top-bar-anuncio">
             <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
         </nav>
 
-        <!-- Menú de navegación principal -->
+        <!-- 🔸 Menú de navegación principal -->
         <nav class="menu" id="Menu">
 
             <!-- Botón hamburguesa (☰) para abrir menú lateral en dispositivos pequeños -->
@@ -46,64 +46,70 @@ require_once "conexion_usuarios.php";
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!--  Logo de la tienda -->
+            <!-- 🔹 Logo de la tienda -->
             <div class="logo">
                 <a href="inicio.php">
                     <img src="../img/logo.jpg" alt="Logo">
                 </a>
             </div>
 
-            <!-- Título centrado en la barra -->
+            <!-- 🔹 Título centrado en la barra -->
             <div class="navbar-center">
                 <h1>JMA HILVANA</h1>
             </div>
 
-            <!-- Sección superior con búsqueda, carrito y login -->
+            <!-- 🔹 Sección superior con búsqueda, carrito y login -->
             <div class="top-bar">
 
-                <!-- Barra de búsqueda -->
+                <!-- 🔍 Barra de búsqueda -->
                 <div class="search-bar">
                     <div class="search-container">
-                        <button type="button" id="searchButton">
+                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-suggestions" id="searchSuggestions"></div>
                     </div>
                 </div>
 
-                <!--  Icono de carrito, enlaza con carrito.php -->
+                <!-- 🛒 Icono de carrito, enlaza con carrito.php -->
                 <div class="car-shopping">
                     <a href="carrito.php" id="car-shopping-btn">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                 </div>
 
-                <!-- Botón de inicio de sesión -->
+
+                <!-- Botón de Inicio de Sesión -->
                 <div class="Login">
-                    <a href="registrar.php" class="login-button" onclick="toggleLoginModal()">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
                 </div>
 
-                <!--  Botón de favoritos -->
-                <div class="favorites">
-                    <button type="button" id="favorites-btn">
-                        <i class="fa-solid fa-heart"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-        <!-- MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
+                <!-- ❤ Botón de favoritos -->
+               <div class="favorites">
+    <a href="favoritos.php" id="favorites-btn">
+        <i class="fa-solid fa-heart"></i>
+    </a>
+</div>
+        
+        <!-- 🔸 MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
         <div id="sideMenu" class="side-menu">
             <button class="close-btn" onclick="toggleSideMenu()">
                 <i class="fas fa-times"></i>
             </button>
             <ul>
-                <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-tshirt"></i> Productos</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
-                <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
             </ul>
         </div>
 
@@ -111,120 +117,208 @@ require_once "conexion_usuarios.php";
         <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
     </header>
 
-    <!-- Sección de encabezado visual (puede usarse para banners o imágenes de portada) -->
+    <!-- 🖼 Sección de encabezado visual (puede usarse para banners o imágenes de portada) -->
     <section class="header">
         <section id="inicio">
             <h2 class="title"></h2>
         </section>
     </section>
 
-    <!-- SECCIÓN DE PRODUCTOS -->
+    <!-- 🧵 SECCIÓN DE PRODUCTOS -->
     <div class="container">
         <section class="producto-container">
 
-            <!-- 🛍️ PRODUCTO 1 -->
+ <!-- 🛍 PRODUCTO 1 -->
+<div class="producto">
+    <div class="imagen-container">
+        <!-- Imagen principal y secundaria para efecto hover -->
+        <img src="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg" alt="Vkei1" class="imagen principal">
+        <img src="../img/c78ffdd6-c961-4909-a889-85566237c00e.jpg" alt="Vkei1.1" class="imagen secundaria">
+
+        <!-- ⭐ FAVORITO FUNCIONAL -->
+        <form action="agregar_favorito.php" method="POST">
+            <input type="hidden" name="id_producto" value="1"> <!-- Cambia por el ID real -->
+            <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+            <input type="hidden" name="precio" value="4000">
+            <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+            <button type="submit" class="favorito">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </form>
+
+        <!-- 🛒 CARRITO (NO TOCADO) -->
+        <form action="agregar_carrito.php" method="POST">
+            <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+            <input type="hidden" name="precio" value="4000">
+            <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+            <button type="submit" class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Información del producto -->
+    <div class="info">
+        <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
+        <p class="precio">$4000</p>
+    </div>
+</div>
+
+<!-- 🛍 PRODUCTO 2 -->
+<div class="producto">
+    <div class="imagen-container">
+        <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
+        <img src="../img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg" alt="Vkei2.1" class="imagen secundaria">
+
+        <!-- ⭐ FAVORITO FUNCIONAL -->
+        <form action="agregar_favorito.php" method="POST">
+            <input type="hidden" name="id_producto" value="2"> <!-- Cambia por el ID real -->
+            <input type="hidden" name="nombre" value="Camisa Cross Ribbon Sailor Lace Collar V1 y V2">
+            <input type="hidden" name="precio" value="350">
+            <input type="hidden" name="imagen" value="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg">
+            <button type="submit" class="favorito">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </form>
+
+        <!-- 🛒 CARRITO (NO TOCADO) -->
+        <form action="agregar_carrito.php" method="POST">
+            <input type="hidden" name="nombre" value="Camisa Cross Ribbon Sailor Lace Collar V1 y V2">
+            <input type="hidden" name="precio" value="350">
+            <input type="hidden" name="imagen" value="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg">
+            <button type="submit" class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="info">
+        <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
+        <p class="precio">$350</p>
+    </div>
+</div>
+
+
+<!-- 🛍 PRODUCTO 3 -->
+<div class="producto">
+    <div class="imagen-container">
+        <img src="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg" alt="Vkei3" class="imagen principal">
+        <img src="../img/a8fdb29f-06f2-45e3-ac2a-4c281dd735de.jpg" alt="Vkei3.1" class="imagen secundaria">
+
+        <!-- ⭐ FAVORITO FUNCIONAL -->
+        <form action="agregar_favorito.php" method="POST">
+            <input type="hidden" name="id_producto" value="3"> <!-- cambia 3 por el ID real -->
+            <input type="hidden" name="nombre" value="Capa Azul Estilo Vkei V1 y V2">
+            <input type="hidden" name="precio" value="700">
+            <input type="hidden" name="imagen" value="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg">
+
+            <button type="submit" class="favorito">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </form>
+
+        <!-- 🛒 CARRITO (NO TOCADO) -->
+        <form action="agregar_carrito.php" method="POST">
+            <input type="hidden" name="nombre" value="Capa Azul Estilo Vkei V1 y V2">
+            <input type="hidden" name="precio" value="700">
+            <input type="hidden" name="imagen" value="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg">
+            <button type="submit" class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="info">
+        <h3>Capa Azul Estilo Vkei V1 y V2</h3>
+        <p class="precio">$700</p>
+    </div>
+</div>
+
+
+            <!-- 🛍 PRODUCTO 4 -->
+           <div class="producto">
+    <div class="imagen-container">
+        <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
+        <img src="../img/descarga (5).jpg" alt="Vkei4.1" class="imagen secundaria">
+
+        <!-- BOTÓN DE FAVORITO FUNCIONAL -->
+        <form action="agregar_favorito.php" method="POST">
+            <input type="hidden" name="id_producto" value="1"> <!-- Cambia por el ID real -->
+            <input type="hidden" name="nombre" value="Cuello de Holanes Rosa Blanca, Moño Negro">
+            <input type="hidden" name="precio" value="150">
+            <input type="hidden" name="imagen" value="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg">
+            <button type="submit" class="favorito">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </form>
+
+        <!-- CARRITO (NO TOCADO) -->
+        <form action="agregar_carrito.php" method="POST">
+            <input type="hidden" name="nombre" value="Cuello de Holanes Rosa Blanca, Moño Negro">
+            <input type="hidden" name="precio" value="150">
+            <input type="hidden" name="imagen" value="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg">
+            <button type="submit" class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
+    </div>
+
+    <div class="info">
+        <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
+        <p class="precio">$150</p>
+    </div>
+</div>
+
+
+
+            <!-- 🛍 PRODUCTO 5 -->
             <div class="producto">
                 <div class="imagen-container">
-                    <!-- Imagen principal y secundaria para efecto hover -->
-                    <img src="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg" alt="Vkei1" class="imagen principal">
-                    <img src="../img/c78ffdd6-c961-4909-a889-85566237c00e.jpg" alt="Vkei1.1" class="imagen secundaria">
-
-                    <!-- Botón de favoritos -->
-                    <button class="favorito">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-
-                    <!--  Formulario para agregar al carrito -->
-                    <form action="agregar_carrito.php" method="POST">
-                        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
-                        <input type="hidden" name="precio" value="4000">
-                        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
-                        <button type="submit" class="carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Información del producto -->
-                <div class="info">
-                    <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
-                    <p class="precio">$4000</p>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 2 -->
-            <div class="producto">
-                <div class="imagen-container">
-                    <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
-                    <img src="../img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg" alt="Vkei2.1" class="imagen secundaria">
+                    <img src="../img/raisinghellcamisa1.webp" alt="camisa1" class="imagen principal">
+                    <img src="../img/raisinghellcamisa2.webp" alt="camisa1.1" class="imagen secundaria">
                     <button class="favorito"><i class="fa-regular fa-heart"></i></button>
 
                     <form action="agregar_carrito.php" method="POST">
-                        <input type="hidden" name="nombre" value="Camisa Cross Ribbon Sailor Lace Collar V1 y V2">
+                        <input type="hidden" name="nombre" value="Playera Raising Hell">
                         <input type="hidden" name="precio" value="350">
-                        <input type="hidden" name="imagen" value="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg">
+                        <input type="hidden" name="imagen" value="../img/raisinghellcamisa1.webp">
                         <button type="submit" class="carrito">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </form>
                 </div>
-
                 <div class="info">
-                    <h3>Camisa Cross Ribbon Sailor Lace Collar V1 y V2</h3>
+                    <h3>Playera Raising Hell de Stranger Things</h3>
                     <p class="precio">$350</p>
                 </div>
             </div>
 
-            <!--  PRODUCTO 3 -->
+            <!-- 🛍 PRODUCTO 6 -->
             <div class="producto">
                 <div class="imagen-container">
-                    <img src="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg" alt="Vkei3" class="imagen principal">
-                    <img src="../img/a8fdb29f-06f2-45e3-ac2a-4c281dd735de.jpg" alt="Vkei3.1" class="imagen secundaria">
+                    <img src="../img/pantalon2.png" alt="pantalon1" class="imagen principal">
+                    <img src="../img/pantalon1.png" alt="pantalon1.1" class="imagen secundaria">
                     <button class="favorito"><i class="fa-regular fa-heart"></i></button>
 
                     <form action="agregar_carrito.php" method="POST">
-                        <input type="hidden" name="nombre" value="Capa Azul Estilo Vkei V1 y V2">
-                        <input type="hidden" name="precio" value="700">
-                        <input type="hidden" name="imagen" value="../img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg">
+                        <input type="hidden" name="nombre" value="Pantalones vaqueros vintage desgastados">
+                        <input type="hidden" name="precio" value="750">
+                        <input type="hidden" name="imagen" value="../img/pantalon2.png">
                         <button type="submit" class="carrito">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </button>
                     </form>
                 </div>
-
                 <div class="info">
-                    <h3>Capa Azul Estilo Vkei V1 y V2</h3>
-                    <p class="precio">$700</p>
-                </div>
-            </div>
-
-            <!-- PRODUCTO 4 -->
-            <div class="producto">
-                <div class="imagen-container">
-                    <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
-                    <img src="../img/descarga (5).jpg" alt="Vkei4.1" class="imagen secundaria">
-                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
-
-                    <form action="agregar_carrito.php" method="POST">
-                        <input type="hidden" name="nombre" value="Cuello de Holanes Rosa Blanca, Moño Negro">
-                        <input type="hidden" name="precio" value="150">
-                        <input type="hidden" name="imagen" value="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg">
-                        <button type="submit" class="carrito">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
-                    </form>
-                </div>
-
-                <div class="info">
-                    <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
-                    <p class="precio">$150</p>
+                    <h3>Pantalones vaqueros vintage desgastados</h3>
+                    <p class="precio">$750</p>
                 </div>
             </div>
 
         </section>
     </div>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- 👠 PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
             <!-- Columna 1 -->
