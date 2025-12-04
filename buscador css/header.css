@@ -1,0 +1,274 @@
+/*Importación de fuentes personalizadas desde Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
+/* 
+──────────────────────────────────────────────────────────────
+ESTILOS GENERALES - RESETEO Y BASE VISUAL
+──────────────────────────────────────────────────────────────
+*/
+
+/* Resetea los estilos predeterminados del navegador */
+*{
+    margin: 0; /* Elimina el margen exterior predeterminado */
+    padding: 0; /* Elimina el relleno interior predeterminado */
+    border: 0; /* Elimina los bordes predeterminados */
+    font-size: 100%; /* Mantiene el tamaño de fuente base del navegador */
+    text-align: justify; /* Justifica todo el texto por defecto */
+    color: #4d2b64; /* Color de texto principal en tono morado grisáceo */
+    vertical-align: baseline; /* Alinea los elementos en línea a la base del texto */
+    box-sizing: border-box; /* Incluye padding y borde dentro del ancho total del elemento */
+}
+
+/* Desplazamiento suave al hacer clic en anclas o enlaces internos */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos globales del cuerpo del documento */
+body{
+    text-align: justify; /* Justifica todo el texto del sitio */
+    font-family: 'Ubuntu', sans-serif; /* Fuente moderna y limpia */
+    background-color: #fff; /* Fondo blanco general */
+}
+
+
+/* 
+──────────────────────────────────────────────────────────────
+BARRA SUPERIOR Y NAVEGACIÓN
+──────────────────────────────────────────────────────────────
+*/
+
+/* Centra el título en la barra */
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Estilo del texto del título principal (marca) */
+.navbar-center h1 {
+    color:#e0e0e0;
+    font-family:'Garamond';
+    font-size: 38px;
+}
+
+/* Barra superior con anuncio (envíos, etc.) */
+.top-bar-anuncio{
+    background-color: #131313; /* Fondo negro */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 35px;
+}
+
+.top-bar-anuncio p{
+    color:#f6f6f6; /* Texto blanco */
+    text-align: center;
+    font-size: 18px;
+    padding: 5px 0 0 0;
+}
+
+/* 
+──────────────────────────────────────────────────────────────
+MENÚ PRINCIPAL DE NAVEGACIÓN
+──────────────────────────────────────────────────────────────
+*/
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    background-color: #000000; /* Fondo negro elegante */
+    padding: 0 25px;
+    z-index: 1000; /* Mantiene el menú por encima de otros elementos */
+}
+
+/* Contenedor del logo */
+.logo{
+    z-index: 999;
+    position: relative;
+    margin-right: auto;
+}
+
+/* Imagen del logo */
+.logo img{
+    width: 70px;
+    height: auto;
+    border-radius: 50%; /* Hace el logo circular */
+}
+
+/* Enlace del logo */
+.logo a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+/* Texto del logo (en caso de que no haya imagen) */
+.logo h2{
+    display: none;
+    font-size: 35px;
+    color: #fff;
+    margin-left: 15px;
+}
+
+/* Lista principal del menú */
+.navbar{
+    display: flex;
+    list-style: none;
+}
+
+/* Ícono */
+.hamburger-btn i {
+    color: #dcb13b; /* dorado */
+    font-size: 22px;
+    transition: 0.2s;
+    border-radius: 50%;
+}
+
+/* Hover igual que los otros botones */
+.hamburger-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 28px 55px rgba(0, 0, 0, 0.10),
+        0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+.side-menu i{
+  color:#dcb13b;
+}
+
+/* Elementos del menú */
+.menu-item {
+    border-bottom: 1px solid #f0f0f0;
+}
+.menu-item span{
+    color: #453c5c;
+}
+.menu-item i{
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+.menu-label{
+    display: flex;
+    align-items: center;
+}
+
+
+/* 
+──────────────────────────────────────────────────────────────
+BOTONES DE CARRITO, LOGIN Y FAVORITOS
+──────────────────────────────────────────────────────────────
+*/
+
+/* Botón del carrito */
+.car-shopping button{
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
+}
+.car-shopping button i{
+    color: #dcb13b; 
+}
+
+
+/* Contenedor de login */
+.Login {
+    display: flex;
+    align-items: center;
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 11px;
+    border-radius: 50%;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
+}
+.login-button i{
+    color: #dcb13d;
+}
+
+/* Botón de favoritos */
+.favorites button{
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 11px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid  rgba(235, 185, 58, 0.585);
+}
+.favorites button i{
+    color:#dcb13b;
+}
+.favorites button:hover{
+     transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+
+/* Modificando los colores para los botones que se ven grises */
+.car-shopping a {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(235, 185, 58, 0.585);
+}
+
+.car-shopping a i {
+    color: #dcb13b;
+}
+
+.car-shopping a:hover {
+   transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+.Login a {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 11px;
+    border-radius: 50%;
+    border: 2px solid rgba(235, 185, 58, 0.585);
+}
+
+.Login a i {
+    color: #dcb13b;
+}
+
+.Login a:hover {
+     transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+
+/* Fila que agrupa hamburguesa, buscador, usuario, carrito */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}

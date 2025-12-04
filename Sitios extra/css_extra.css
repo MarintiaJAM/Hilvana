@@ -1,0 +1,40 @@
+/* Aplica a todo el documento */
+body {
+  font-size: 18px;      /* tamaño base más grande */
+  line-height: 1.6;     /* espacio entre líneas */
+  text-align: center;   /* centra todo el texto */
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.contenido {
+  max-width: 900px;     /* ancho máximo para que no se vea demasiado extendido */
+  margin: 0 auto;       /* centra el bloque horizontalmente */
+  padding: 30px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Centrar todas las imágenes dentro del contenido */
+.contenido img {
+  display: block;        /* convierte la imagen en bloque */
+  margin: 20px auto;     /* margen automático a izquierda/derecha */
+  max-width: 100%;       /* que no se desborde */
+  height: auto;          /* mantiene proporción */
+}
+
+/* Encabezados más destacados */
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+}
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}

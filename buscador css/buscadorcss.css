@@ -1,8 +1,4 @@
-/*Importación de fuentes personalizadas desde Google Fonts*/
-@import url('https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap'); /*Fuente "Ubuntu"*/
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap'); /*Fuente cursiva "Dancing Script"*/
-
-body {
+.buscador-container {
     font-family: 'Ubuntu', sans-serif;
     background-color: #f9f9f9;
     padding: 20px;
@@ -10,6 +6,7 @@ body {
 }
 
 h1, h2 {
+    margin: 10px;
     text-align: center;
     color: #222;
 }
@@ -52,9 +49,23 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 15px;
-    width: 250px;
+    width: 300px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.info {
+    margin-top: 10px;
+}
+
+
+.btn-ver {
+    text-align: center;
+    height: 100%; /* importante si quieres que todos tengan la misma altura */
+}
+
+.ver-btn{
+    margin-bottom: auto;
 }
 
 .producto img {
@@ -66,11 +77,9 @@ button:hover {
 .precio {
     font-weight: bold;
     color: rgb(58, 204, 0);
+    text-align: center;
 }
 
-/*Header*/
-
-/*fin del header*/
 
 /*imagenes*/
 .imagen-container {
@@ -128,4 +137,26 @@ button:hover {
 
 .ver-btn:hover {
     background-color: #444;
+    transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+}
+
+:root {
+  --color-primary: #3498db; /* tu color original */
+  --spacing-md: 16px;       /* tu espaciado original */
+}
+
+.product img:first-child {
+  display: block;
+}
+.product img:last-child {
+  display: none;
+}
+.product:hover img:first-child {
+  display: none;
+}
+.product:hover img:last-child {
+  display: block;
 }

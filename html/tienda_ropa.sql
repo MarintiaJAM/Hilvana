@@ -22,4 +22,24 @@ VALUES
 ('Camisa Cross Ribbon Sailor Lace Collar V1 y V2', 'Camisa estilo sailor con encaje y cinta cruzada.', 'S', 'Blanco', 350.00, 15, 5, 'img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg', 'img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg'),
 ('Capa Azul Estilo Vkei V1 y V2', 'Capa azul con detalles Vkei, ideal para conjuntos alternativos.', 'L', 'Azul', 700.00, 8, 8, 'img/8d6d4e4e-fef1-45b6-9a9f-4b89672b9bea.jpg', 'img/a8fdb29f-06f2-45e3-ac2a-4c281dd735de.jpg'),
 ('Cuello de Holanes Rosa Blanca, Moño Negro', 'Accesorio de cuello con holanes blancos y moño negro.', 'Única', 'Rosa y blanco', 150.00, 20, 9, 'img/c83d08db-3986-427c-9050-afb4ad899304.jpg', 'img/descarga (5).jpg'),
+('Pantalones vaqueros vintage desgastados','pantalones holgados de cintura alta y pierna ancha.', 'M,G', 'Negro', 750.00, 12, 4, '../img/pantalon2.png', '../img/pantalon1.png'),
+--Para asignar talla a una prenda de ropa con su id de esa ropa
+INSERT INTO producto_tallas (id_producto, talla) VALUES
+(5, 'CH'),
+(5, 'M'),
+(5, 'G'),
+(5, 'EG'),
+(5, 'Extra G'),
+(5, 'Única');
 
+--Para asignar color a una prenda de ropa con su id de esa ropa
+INSERT INTO producto_colores (id_producto, color) VALUES
+(5, 'Negro'),
+(5, 'Rosa pastel'),
+(5, 'Verde olivo'),
+(5, 'Multicolor'),
+(5, 'Azul marino');
+
+--Para revisar si los cambios si fueron realizados
+SELECT * FROM producto_tallas WHERE id_producto = 5;
+SELECT * FROM producto_colores WHERE id_producto = 5;

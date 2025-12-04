@@ -90,13 +90,13 @@ require_once "conexion_usuarios.php";
                         <?php endif; ?>
 
                 </div>
-
                 <!-- ❤ Botón de favoritos -->
                <div class="favorites">
     <a href="favoritos.php" id="favorites-btn">
         <i class="fa-solid fa-heart"></i>
     </a>
 </div>
+
         
         <!-- 🔸 MENÚ LATERAL (que se despliega al dar clic al botón hamburguesa) -->
         <div id="sideMenu" class="side-menu">
@@ -274,6 +274,103 @@ require_once "conexion_usuarios.php";
             <!-- 🛍 PRODUCTO 5 -->
             <div class="producto">
                 <div class="imagen-container">
+                    <!-- Imagen principal y secundaria para efecto hover -->
+                    <img src="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg" alt="Vkei1" class="imagen principal">
+                    <img src="../img/c78ffdd6-c961-4909-a889-85566237c00e.jpg" alt="Vkei1.1" class="imagen secundaria">
+
+                    <!-- Botón de favoritos -->
+                    <button class="favorito">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                    <!-- 🛒 Formulario para agregar al carrito -->
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Conjunto de Ropa Estilo Vkei Azul y Negro">
+                        <input type="hidden" name="precio" value="4000">
+                        <input type="hidden" name="imagen" value="../img/Black and Dark Blue Ouji Shorts with Overlay.jpg">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Información del producto -->
+                <div class="info">
+                    <h3>Conjunto de Ropa Estilo Vkei Azul y Negro</h3>
+                    <p class="precio">$4000</p>
+                </div>
+            </div>
+
+            <!-- 🛍️ PRODUCTO 2 -->
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg" alt="Vkei2" class="imagen principal">
+                    <img src="../img/dd667753-bc0c-48e5-858b-a4674f988da4.jpg" alt="Vkei2.1" class="imagen secundaria">
+                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Playera Raising Hell">
+                        <input type="hidden" name="precio" value="350">
+                        <input type="hidden" name="imagen" value="../img/raisinghellcamisa1.webp">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="info">
+                    <h3>Playera Raising Hell de Stranger Things</h3>
+                    <p class="precio">$350</p>
+                </div>
+            </div>
+
+            <!-- 🛍️ PRODUCTO 3 -->
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/pantalon2.png" alt="pantalon1" class="imagen principal">
+                    <img src="../img/pantalon1.png" alt="pantalon1.1" class="imagen secundaria">
+                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Pantalones vaqueros vintage desgastados">
+                        <input type="hidden" name="precio" value="750">
+                        <input type="hidden" name="imagen" value="../img/pantalon2.png">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="info">
+                    <h3>Capa Azul Estilo Vkei V1 y V2</h3>
+                    <p class="precio">$700</p>
+                </div>
+            </div>
+
+            <!-- 🛍️ PRODUCTO 4 -->
+            <div class="producto">
+                <div class="imagen-container">
+                    <img src="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg" alt="Vkei4" class="imagen principal">
+                    <img src="../img/descarga (5).jpg" alt="Vkei4.1" class="imagen secundaria">
+                    <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+
+                    <form action="agregar_carrito.php" method="POST">
+                        <input type="hidden" name="nombre" value="Cuello de Holanes Rosa Blanca, Moño Negro">
+                        <input type="hidden" name="precio" value="150">
+                        <input type="hidden" name="imagen" value="../img/c83d08db-3986-427c-9050-afb4ad899304.jpg">
+                        <button type="submit" class="carrito">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
+                    </form>
+                    </div>
+                <div class="info">
+                    <h3>Cuello de Holanes Rosa Blanca, Moño Negro</h3>
+                    <p class="precio">$150</p>
+                </div>
+            </div>
+
+
+            <!-- 🛍️ PRODUCTO 5 -->
+            <div class="producto">
+                <div class="imagen-container">
                     <img src="../img/raisinghellcamisa1.webp" alt="camisa1" class="imagen principal">
                     <img src="../img/raisinghellcamisa2.webp" alt="camisa1.1" class="imagen secundaria">
                     <button class="favorito"><i class="fa-regular fa-heart"></i></button>
@@ -293,7 +390,7 @@ require_once "conexion_usuarios.php";
                 </div>
             </div>
 
-            <!-- 🛍 PRODUCTO 6 -->
+            <!-- 🛍️ PRODUCTO 6 -->
             <div class="producto">
                 <div class="imagen-container">
                     <img src="../img/pantalon2.png" alt="pantalon1" class="imagen principal">
@@ -323,23 +420,20 @@ require_once "conexion_usuarios.php";
         <div class="footer-top">
             <!-- Columna 1 -->
             <div class="footer-column">
-                <h4>Customer Service</h4>
+                <h4>Servicio al cliente</h4>
                 <ul>
-                    <li><a href="#">Help & Contact</a></li>
-                    <li><a href="#">Returns & Exchanges</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Ayuda y contacto</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Pedidos</a></li>
                 </ul>
             </div>
 
             <!-- Columna 2 -->
             <div class="footer-column">
-                <h4>About Us</h4>
+                <h4>Sobre Nosotros</h4>
                 <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Sustainability</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Corporate Info</a></li>
+                    <li><a href="#">Nuestra historia</a></li>
+                    <li><a href="#">Información de la corporación</a></li>
                 </ul>
             </div>
 
@@ -347,8 +441,8 @@ require_once "conexion_usuarios.php";
             <div class="footer-column">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
                     <li><a href="#">Cookies</a></li>
                 </ul>
             </div>
