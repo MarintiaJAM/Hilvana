@@ -1,161 +1,372 @@
 
-/* ====== CARRITO PREMIUM ====== */
-.carrito-container {
-    max-width: 1000px;
-    margin: 70px auto;
-    padding: 30px;
-    font-family: 'Ubuntu', sans-serif;
+.carrito-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90%;
+    margin: 20px auto;
 }
 
-/* Tarjeta individual */
+
+.carrito-izquierda {
+    width: 65%;
+}
+
+
+.carrito-derecha {
+    width: 30%;
+}
+
+
 .producto-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: white;
-    padding: 18px;
-    margin-bottom: 18px;
-    border-radius: 16px;
-    border: 1px solid #d4af37;
-    box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
-    transition: transform .2s ease;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 15px;
+    border-radius: 14px;
+    margin: 15px auto;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
-.producto-card:hover {
-    transform: translateY(-3px);
+
+.producto-card img {
+    width: 110px !important;
+    height: 140px !important;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    background: #f7f7f7;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
-/* Imagen */
+/* Contenido de texto */
 .producto-info {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
 }
 
-.producto-info img {
-    width: 95px;
-    height: 95px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid #d4af37;
-}
-
-/* nombre + precio */
 .producto-texto h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 6px;
+    margin: 0;
+    font-size: 16px;
+    color: #222;
 }
 
 .producto-texto span {
-    color: #d4af37;
-    font-size: 17px;
     font-weight: bold;
+    color: #c9a646; /* dorado elegante */
+    font-size: 17px;
 }
 
-/*** BOTONES ***/
+/* Botón eliminar */
 .btn-eliminar {
-    border: 1px solid #d9534f;
-    color: #d9534f;
-    background: transparent;
-    padding: 9px 15px;
+    background: #000;
+    color: white;
+    border: 1px solid #c9a646;
+    padding: 8px 14px;
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
-    font-weight: 600;
 }
 
 .btn-eliminar:hover {
-    background: #d9534f;
-    color: white;
+    background: #c9a646;
+    color: #000;
 }
 
-/* Contenedor de botones finales */
-.carrito-footer {
-    text-align: right;
-    margin-top: 35px;
+
+.total-container {
+    width: 100%;
 }
 
-/* Botón seguir comprando */
-.btn-seguir {
-    background: #d4af37;
-    border: none;
+.total-box {
+    background: white;
+    border: 2px solid #c9a646;
+    padding: 20px;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.total-box h3 {
+    margin: 0 0 10px 0;
+    color: #000;
+}
+
+.total-precio {
+    font-size: 24px;
+    font-weight: bold;
+    color: #c9a646;
+}
+
+/* Botón pagar */
+.btn-pagar {
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 15px;
+    background: #c9a646;
     color: black;
-    padding: 10px 24px;
+    border: none;
     border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s ease;
-    margin-right: 10px;
+    transition: 0.3s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.btn-pagar:hover {
+    background: black;
+    color: white;
+    transform: scale(1.03); /* ligero zoom elegante */
 }
 
-.btn-seguir:hover {
-    background: #f0d96e;
+
+
+
+.carrito-botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
 }
 
-/* Botón Vaciar */
-.btn-vaciar {
-    border: 2px solid #d4af37;
-    background: transparent;
-    color: #d4af37;
-    padding: 10px 22px;
+.btn-vaciar, .btn-seguir {
+    padding: 10px 18px;
     border-radius: 10px;
+    border: 2px solid #c9a646;
     cursor: pointer;
     transition: 0.3s;
 }
 
+.btn-vaciar {
+    background: white;
+    color: black;
+}
+
 .btn-vaciar:hover {
-    background: #d4af37;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s;
+    background: #c9a646;
+    color: black;
+}
+
+.btn-seguir {
+    background: white;
+    color: black;
 }
 
 .btn-seguir:hover {
-    background-color: #d4af37;
-}
-/* CONTENEDOR DE BOTONES DE FAVORITOS */
-.favoritos-botones {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
-    margin-bottom: 40px;
-}
-
-/* Botón Vaciar Favoritos */
-.favoritos-botones .btn-vaciar {
-    background-color: #000; /* negro elegante */
+    background: #c9a646;
     color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
+}
+
+
+@media (max-width: 900px) {
+    .carrito-layout {
+        flex-direction: column;
+    }
+
+    .carrito-izquierda,
+    .carrito-derecha {
+        width: 100%;
+    }
+
+    .carrito-derecha {
+        display: flex;
+        justify-content: center;
+    }
+}
+/* =========================================================== */
+/* ===================  FAVORITOS LAYOUT  ===================== */
+/* =========================================================== */
+
+.favoritos-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    width: 90%;
+    margin: 30px auto;
+}
+
+/* IZQUIERDA */
+.favoritos-left {
+    width: 65%;
+}
+
+/* TARJETAS FAVORITOS (REUSAN producto-card) */
+.favoritos-left .producto-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 15px;
+    border-radius: 14px;
+    width: 100%;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.favoritos-left .producto-card img {
+    width: 110px !important;
+    height: 140px !important;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    background: #f7f7f7;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Texto */
+.favoritos-left .producto-texto h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #222;
+}
+
+.favoritos-left .producto-texto span {
+    color: #c9a646;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+/* Botones inferiores */
+.favoritos-botones {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.btn-vaciar {
+    background: white;
+    border: 2px solid #c9a646;
+    padding: 10px 20px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
 }
 
-.favoritos-botones .btn-vaciar:hover {
-    background-color: #333;
+.btn-vaciar:hover {
+    background: #c9a646;
 }
 
-/* Botón Seguir Comprando */
-.favoritos-botones .btn-seguir {
-    background-color: #d4af37; /* dorado */
-    color: black;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
+.btn-seguir {
+    background: white;
+    border: 2px solid #c9a646;
+    padding: 10px 20px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
 }
 
-.favoritos-botones .btn-seguir:hover {
-    background-color: #bb9930;
+.btn-seguir:hover {
+    background: #c9a646;
+    color: white;
+}
+
+/* =========================================================== */
+/* ==================   TARJETA DERECHA   ==================== */
+/* =========================================================== */
+
+/* ================================
+   TARJETA DERECHA – DISEÑO PREMIUM
+   ================================ */
+
+.favoritos-right {
+    flex: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 2px solid rgba(201, 166, 70, 0.4); /* borde dorado elegante */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    max-width: 380px;
+}
+
+/* Título */
+.favoritos-right h2 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 12px;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+/* Texto descriptivo bonito */
+.favoritos-right p {
+    text-align: left;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: #4a4a4a;
+
+    background: linear-gradient(90deg, #faf7f0 0%, #ffffff 100%);
+    padding: 14px 18px;
+    border-left: 4px solid #c9a646; /* barra dorada */
+    border-radius: 8px;
+
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+}
+
+/* Botones */
+.btn-fav-crear,
+.btn-fav-acceder {
+    display: block;
+    width: 100%;
+    padding: 13px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    transition: 0.3s;
+    border: none;
+}
+
+/* Crear cuenta */
+.btn-fav-crear {
+    background: #000;
+    color: #fff;
+}
+.btn-fav-crear:hover {
+    background: #c9a646;
+    color: #000;
+    transform: scale(1.03);
+}
+
+/* Acceder */
+.btn-fav-acceder {
+    background: #000;
+    color: #fff;
+}
+.btn-fav-acceder:hover {
+    background: #c9a646;
+    color: #fff;
+    transform: scale(1.03);
+}
+
+/* =========================================================== */
+/* ==================  RESPONSIVE FAVORITOS  ================= */
+/* =========================================================== */
+
+@media (max-width: 900px) {
+    .favoritos-layout {
+        flex-direction: column;
+    }
+
+    .favoritos-left,
+    .favoritos-right {
+        width: 100%;
+    }
+
+    .favoritos-right {
+        margin-top: 20px;
+    }
 }
