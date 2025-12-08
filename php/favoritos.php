@@ -1,5 +1,9 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once "conexion_usuarios.php";
 require_once "config.php"; // Conexión a jma_hilvana
 
 $id_usuario = 1; // Temporal
@@ -81,11 +85,17 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
                 </a>
             </div>
 
-            <div class="Login">
-                <a href="registrar.php" class="login-button">
-                    <i class="fas fa-user"></i>
-                </a>
-            </div>
+             <!-- Botón de Inicio de Sesión -->
+                <div class="Login">
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
+                </div>
 
             <div class="favorites">
                 <button type="button" id="favorites-btn">
