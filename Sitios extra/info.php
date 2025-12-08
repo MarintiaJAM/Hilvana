@@ -35,7 +35,7 @@
 
             <!-- 🔹 Logo de la tienda -->
             <div class="logo">
-                <a href="inicio.php">
+                <a href="../php/inicio.php">
                     <img src="../img/logo.jpg" alt="Logo">
                 </a>
             </div>
