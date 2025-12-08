@@ -56,6 +56,7 @@ if ($rol_usuario === "admin") {
           <a href="registrar.php">Crear usuario</a>
         <?php endif; ?>
         <a href="inicio.php">Inicio</a>
+        <a href="perfil.php">Perfil</a>
         <a href="salir.php">Cerrar sesión</a>
       </p>
 
