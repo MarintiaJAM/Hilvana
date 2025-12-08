@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "jma hilvana"; // cambia si tu base tiene otro nombre
+$dbname = "jma_hilvana"; // cambia si tu base tiene otro nombre
 $user = "root"; 
 $pass = ""; // XAMPP usa contraseña vacía
 
