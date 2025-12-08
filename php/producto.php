@@ -53,10 +53,19 @@ if (!empty($producto['imagen_secundaria'])) {
 <head>
     <meta charset="UTF-8">
     <title><?php echo htmlspecialchars($producto['nombre_producto']); ?> - JMA HILVANA</title>
+     <link rel="icon" type="image/png" class="logopestaña" href="../img/logo.jpg">
+      <!-- 💅 Fuentes y estilos -->
+    <!-- Fuente principal desde Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&display=swap">
+
+    <!-- Librería de íconos Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <link rel="stylesheet" href="../buscador css/producto.css">
 </head>
 <body>
 
+<div class="producto-container">
 <div class="producto-detalle">
     <h1><?php echo htmlspecialchars($producto['nombre_producto']); ?></h1>
     <p><strong>Categoría:</strong> <?php echo htmlspecialchars($producto['nombre_categoria']); ?></p>
@@ -70,11 +79,56 @@ if (!empty($producto['imagen_secundaria'])) {
         <button class="nav-btn" id="nextBtn" aria-label="Imagen siguiente">&#10095;</button>
     </div>
 
-    <!-- Selección de talla y color y agregar al carrito -->
-    <form method="post" action="agregar_carrito.php" class="seleccion">
-        <input type="hidden" name="id_producto" value="<?php echo (int)$producto['id_producto']; ?>">
 
-        <label for="talla">Selecciona talla:</label>
+<div class="producto-precio-fav">
+    <h2>$<?php echo number_format($producto['precio'], 2); ?></h2>
+
+    <button class="btn-fav" onclick="toggleFav(this)">
+        <i class="fa-regular fa-heart"></i> <!-- Vacío -->
+    </button>
+</div>
+
+
+<script>
+function toggleFav(btn) {
+    const icon = btn.querySelector("i");
+
+    if (icon.classList.contains("fa-regular")) {
+        icon.classList.remove("fa-regular");
+        icon.classList.add("fa-solid"); // ahora se rellena
+    } else {
+        icon.classList.remove("fa-solid");
+        icon.classList.add("fa-regular"); // vuelve a vacío
+    }
+}
+</script>
+
+
+
+<p class="label">COLOR:</p>
+<div class="colores-opciones">
+    <?php foreach($colores as $c): ?>
+        <button type="button" class="color-btn" data-color="<?php echo $c; ?>">
+            <?php echo htmlspecialchars($c); ?>
+        </button>
+    <?php endforeach; ?>
+</div>
+
+<div class="galeria-miniaturas">
+    <img src="<?php echo $producto['imagen_principal']; ?>" class="mini-img" onclick="cambiarImagen(this)">
+    <img src="<?php echo $producto['imagen_secundaria']; ?>" class="mini-img" onclick="cambiarImagen(this)">
+</div>
+
+<script>
+function cambiarImagen(elemento) {
+    document.querySelector(".producto-imagen img").src = elemento.src;
+
+    document.querySelectorAll(".mini-img").forEach(img => img.classList.remove("active"));
+    elemento.classList.add("active");
+}
+</script>
+
+<label for="talla">Selecciona talla:</label>
         <select name="talla" id="talla" required>
             <?php if (count($tallas) > 0): ?>
                 <?php foreach ($tallas as $t): ?>
@@ -85,26 +139,17 @@ if (!empty($producto['imagen_secundaria'])) {
             <?php endif; ?>
         </select>
 
-        <label for="color">Selecciona color:</label>
-        <select name="color" id="color" required>
-            <?php if (count($colores) > 0): ?>
-                <?php foreach ($colores as $c): ?>
-                    <option value="<?php echo htmlspecialchars($c); ?>"><?php echo htmlspecialchars($c); ?></option>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <option value="">No disponible</option>
-            <?php endif; ?>
-        </select>
+<form method="post" action="agregar_carrito.php" id="formSeleccion">
+    <input type="hidden" name="color" id="colorSeleccionado">
+    <input type="hidden" name="talla" id="tallaSeleccionada">
+    <input type="hidden" name="id_producto" value="<?php echo $producto['id_producto']; ?>">
+    <button type="submit" class="agregar-btn">AGREGAR</button>
+</form>
 
-        <button type="submit" class="carrito-btn">Agregar al carrito</button>
-    </form>
-            <!---- Botón de compra directa ---->
-    <form method="get" action="../php/checkout.php">
+<form method="get" action="../php/checkout.php">
     <input type="hidden" name="id_producto" value="<?php echo (int)$producto['id_producto']; ?>">
-    <button type="submit" class="comprar-btn">Comprar</button>
-    </form>
-
-
+    <button type="submit" class="agregar-btn">COMPRAR</button>
+</form>
     <a href="buscador.php" class="volver-btn">← Volver al buscador</a>
 </div>
 
@@ -135,6 +180,45 @@ nextBtn.addEventListener('click', () => {
     actualizarImagen();
 });
 </script>
+
+
+<script>
+// -------- MINIATURAS ----------
+const thumbs = document.querySelectorAll('.thumb');
+const principal = document.getElementById('galeria-img');
+
+thumbs.forEach(t => {
+    t.addEventListener('click', () => {
+        document.querySelector('.thumb.activo').classList.remove('activo');
+        t.classList.add('activo');
+        principal.src = t.src;
+    });
+});
+
+// -------- TALLA Y COLOR ----------
+const tallaBtns = document.querySelectorAll('.talla-btn');
+const colorBtns = document.querySelectorAll('.color-btn');
+
+const tallaInput = document.getElementById('tallaSeleccionada');
+const colorInput = document.getElementById('colorSeleccionado');
+
+tallaBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.talla-btn.seleccionado')?.classList.remove('seleccionado');
+        btn.classList.add('seleccionado');
+        tallaInput.value = btn.dataset.talla;
+    });
+});
+
+colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.color-btn.seleccionado')?.classList.remove('seleccionado');
+        btn.classList.add('seleccionado');
+        colorInput.value = btn.dataset.color;
+    });
+});
+</script>
+</div
 
 </body>
 </html>
