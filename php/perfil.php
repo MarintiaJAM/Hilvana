@@ -141,7 +141,7 @@ if (empty($usuario['foto'])) {
   <!-- FAVORITOS -->
   <div class="tab-content" id="favoritos">
       <h3>Favoritos</h3>
-      <?php include "favoritos_mini.php"; ?>
+      <?php include "../minis/favoritos_mini.php"; ?>
   </div>
 
   <!-- CARRITO -->
