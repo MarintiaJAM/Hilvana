@@ -1,9 +1,152 @@
+/* CONTENEDOR DEL BUSCADOR */
 .buscador-container {
     font-family: 'Ubuntu', sans-serif;
-    background-color: #f9f9f9;
-    padding: 20px;
-    color: #333;
+    /* background-color: #f9f9f9; */
+    padding: 25px 10px;
+    /* display: flex;
+    justify-content: center; */
 }
+
+/* FORMULARIO */
+.buscador-container form {
+    display: flex;
+    gap: 8px;
+    /* background: #ffffff; */
+    padding: 12px;
+    border-radius: 14px;
+    /* box-shadow: 0 3px 10px rgba(62, 61, 59, 0.585);  */
+    align-items: center;
+}
+
+/* INPUT DE TEXTO */
+.buscador-container input[type="text"] {
+    padding: 12px 14px;
+    width: 260px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.buscador-container input[type="text"]:focus {
+    border-color:#dcb13b;
+    box-shadow: 0 0 6px rgba(146, 127, 78, 0.585); 
+}
+
+/* SELECTS */
+.buscador-container select {
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.buscador-container select:hover {
+    border-color:#dfc375;
+}
+
+/* BOTÓN BUSCAR */
+.buscador-container button {
+    padding: 12px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buscador-container button:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+
+/* === ESTILO GENERAL DEL SELECT === */
+.buscador-container select {
+    padding: 12px 14px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+
+}
+
+/* Hover del select */
+.buscador-container select:hover {
+    border-color: #dfc375;
+}
+
+/* Focus del select */
+.buscador-container select:focus {
+    outline: none;
+    border-color: #dfc375;
+    box-shadow: 0 0 6px rgba(235, 185, 58, 0.585); 
+}
+
+/* === OPCIONES DEL DESPLEGABLE === */
+.buscador-container select option {
+    padding: 10px;
+    background: #fff;
+    color: #000;
+    font-weight: 500;
+    border: none;
+}
+
+/* Primera opción (título) */
+.buscador-container select option:first-child {
+    font-weight: bold;
+    background: #eee;
+    color: #222;
+}
+
+/* Hover dentro del menú */
+.buscador-container select option:hover {
+    background-color: #f2e8ff;
+}
+
+
+
+/* Opciones del menú desplegable */
+.buscador-container select option {
+    background-color: #ffffff;   /* Fondo blanco */
+    color: #000000;              /* Texto en negro */
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 14px;
+}
+
+/* Primera opción (encabezado tipo categoría) */
+.buscador-container select option:first-child {
+    background-color: #f5dca4;   /* Dorado claro */
+    color: #000000;
+    font-weight: bold;
+}
+
+/* Opción seleccionada */
+.buscador-container select option:checked {
+    background-color: #e8c472;   /* Dorado suave */
+    color: #000000;
+}
+
+/* Hover de opciones (Firefox principalmente) */
+.buscador-container select option:hover {
+    background-color: #fae6b5;   /* Dorado claro */
+}
+
+
+
+
+
 
 h1, h2 {
     margin: 10px;
