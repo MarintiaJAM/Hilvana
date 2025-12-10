@@ -172,10 +172,11 @@ $carrito = $_SESSION['carrito'];
         ?>
 
         <div class="total-box">
-            <h3>Total del Carrito</h3>
-            <p class="total-precio">$<?php echo number_format($total, 2); ?></p>
-            <button class="btn-pagar">Ir a pagar</button>
+          <h3>Total del Carrito</h3>
+          <p class="total-precio">$<?php echo number_format($total, 2); ?></p>
+          <a href="checkout.php" class="btn-pagar">Ir a pagar</a>
         </div>
+
 
     </div>
 
