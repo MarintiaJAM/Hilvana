@@ -114,6 +114,21 @@ MENÚ PRINCIPAL DE NAVEGACIÓN
 }
 
 
+/* Botón menú hamburguesa (para responsive) */
+.hamburger-btn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #000; /* mismo fondo negro */
+    border: 2px solid rgba(235, 185, 58, 0.585); /* borde dorado */
+    border-radius: 50%; /* forma circular */
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 /* Ícono */
 .hamburger-btn i {
     color: #dcb13b; /* dorado */
@@ -288,6 +303,27 @@ BOTONES DE CARRITO, LOGIN Y FAVORITOS
 }
 
 .Login a:hover {
+     transform: translateY(-2px);
+  box-shadow:
+    0 28px 55px rgba(0, 0, 0, 0.10),
+    0 8px 16px rgba(0, 0, 0, 0.06);
+    background-color: #333;
+}
+
+.favorites a {
+    display: flex;
+    align-items: center;
+    background-color: #000000;
+    padding: 10px 11px;
+    border-radius: 50%;
+    border: 2px solid rgba(235, 185, 58, 0.585);
+}
+
+.favorites a i {
+    color: #dcb13b;
+}
+
+.favorites a:hover {
      transform: translateY(-2px);
   box-shadow:
     0 28px 55px rgba(0, 0, 0, 0.10),

@@ -49,9 +49,10 @@ if (empty($usuario['foto'])) {
     </nav>
 
     <nav class="menu" id="Menu">
-        <button class="hamburger-btn" id="hamburgerBtn">
-            <i class="fas fa-bars"></i>
-        </button>
+          <!-- Botón hamburguesa (☰) para abrir menú lateral en dispositivos pequeños -->
+            <button class="hamburger-btn" id="hamburgerBtn">
+                <i class="fas fa-bars"></i>
+            </button>
 
         <div class="logo">
             <a href="inicio.php">
@@ -63,7 +64,7 @@ if (empty($usuario['foto'])) {
             <h1>JMA HILVANA</h1>
         </div>
 
-        <div class="top-bar">
+          <div class="top-bar">
             <div class="search-bar">
                 <div class="search-container">
                     <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
@@ -72,6 +73,33 @@ if (empty($usuario['foto'])) {
                     <div class="search-suggestions" id="searchSuggestions"></div>
                 </div>
             </div>
+
+            <div class="car-shopping">
+                    <a href="carrito.php" id="car-shopping-btn">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                </div>
+
+
+                <!-- Botón de Inicio de Sesión -->
+                <div class="Login">
+                    <?php if (isset($_SESSION['usuario_id'])): ?>
+                        <!-- Si el usuario YA inició sesión -->
+                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
+                        <?php else: ?>
+                        <!-- Si el usuario NO ha iniciado sesión -->
+                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
+                        <?php endif; ?>
+
+                </div>
+                <!-- ❤ Botón de favoritos -->
+               <div class="favorites">
+    <a href="favoritos.php" id="favorites-btn">
+        <i class="fa-solid fa-heart"></i>
+    </a>
+</div>
+
+          </div>      
     </nav>
 
     <div id="sideMenu" class="side-menu">
