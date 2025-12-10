@@ -15,16 +15,17 @@ try {
 
 function Habilitar_bot() {
   const colors = [
-    "#d6409f",
-    "#3a8ed6",
-    "#f94d4d",
-    "#42d697",
-    "#f2c14e",
-    "#9354e2",
-    "#e64f5e",
-    "#5ea4a4",
-    "#c35020",
-    "#7a3e9d"
+    //"#d6409f",
+    //"#3a8ed6",
+    //"#f94d4d",
+    //"#42d697",
+    "#f2c14e"
+    //"#9354e2",
+    //"#e64f5e",
+    //"#5ea4a4",
+    //"#c35020",
+    //"#7a3e9d"
+    
   ];
   const variants = ["soft", "solid"]; //
   const themes = ["light", "dark"];
