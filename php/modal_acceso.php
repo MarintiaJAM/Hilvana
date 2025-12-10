@@ -80,7 +80,7 @@
 
 .btn-arriba {
   display: block;
-  background: linear-gradient(135deg, #d4a017, #f4d03f);
+  background: linear-gradient(135deg, #f4d03f, #f4d03f);
   color: #000;
   font-weight: bold;
   font-size: 1em;     
@@ -101,7 +101,7 @@
 
 .btn-abajo {
   display: block;
-  background: linear-gradient(135deg, #d4a017, #f4d03f);;
+  background: linear-gradient(135deg, #f4d03f, #f4d03f );
   color: #000;
   font-weight: bold;
    font-size: 1em; 
@@ -126,11 +126,12 @@ background: #fff;
 
 .btn-arriba,
 .btn-abajo {
-  border-radius: 50px;        
-  padding: 16px 25px;         
-  font-size: 1.1em;           
-  letter-spacing: 1px;        
+  border-radius: 14px;   
+  padding: 16px 25px;
+  font-size: 1.1em;
+  letter-spacing: 1px;
 }
+
 
 
   </style>
