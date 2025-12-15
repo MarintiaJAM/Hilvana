@@ -440,7 +440,52 @@ CONTENIDO PRINCIPAL Y PRODUCTOS
   opacity: 0;
 }
 
+.imagen-container {
+    position: relative;
+}
+
+/* El link ocupa toda la imagen */
+.link-producto {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Las imágenes siguen funcionando igual */
+.link-producto img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*INFORMACIÓN DEL PRODUCTO*/
+.info {
+    margin-top: 10px;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.precio {
+    font-weight: bold;
+    color: rgb(58, 204, 0);
+    text-align: center;
+}
+
+
+
 /* Botón de favorito sobre la imagen */
+.favorito,
+.carrito {
+    z-index: 5;
+}
+
+
 .favorito {
   position: absolute;
   top: 10px;

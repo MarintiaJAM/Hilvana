@@ -130,57 +130,60 @@ require_once "conexion_usuarios.php";
     <div class="container">
         <section class="producto-container">
 
- <?php
+        <?php
 $conexion = new mysqli("localhost", "root", "", "tienda_ropa");
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
-$sql = "SELECT nombre_producto, precio, imagen_principal, imagen_secundaria FROM productos";
+$sql = "SELECT id_producto, nombre_producto, precio, imagen_principal, imagen_secundaria FROM productos";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         ?>
         <!-- 🛍️ PRODUCTO -->
-        <div class="producto">
-            <div class="imagen-container">
-                <img src="<?php echo $fila['imagen_principal']; ?>" 
-                     alt="<?php echo $fila['nombre_producto']; ?>" 
-                     class="imagen principal">
-                <img src="<?php echo $fila['imagen_secundaria']; ?>" 
-                     alt="<?php echo $fila['nombre_producto']; ?> secundaria" 
-                     class="imagen secundaria">
-                <button class="favorito"><i class="fa-regular fa-heart"></i></button>
+       <div class="producto">
 
-                <!-- ⭐ FAVORITO FUNCIONAL -->
+    <div class="imagen-container">
+
+        <!-- LINK SOLO PARA LA IMAGEN -->
+        <a href="producto.php?id=<?php echo $fila['id_producto']; ?>" class="link-producto">
+            <img src="<?php echo $fila['imagen_principal']; ?>" 
+                 alt="<?php echo $fila['nombre_producto']; ?>" 
+                 class="imagen principal">
+
+            <img src="<?php echo $fila['imagen_secundaria']; ?>" 
+                 alt="<?php echo $fila['nombre_producto']; ?> secundaria" 
+                 class="imagen secundaria">
+        </a>
+
+        <!-- FAVORITO -->
         <form action="agregar_favorito.php" method="POST">
-            <input type="hidden" name="id_producto" value="2"> <!-- Cambia por el ID real -->
-            <input type="hidden" name="nombre" value="Camisa Cross Ribbon Sailor Lace Collar V1 y V2">
-            <input type="hidden" name="precio" value="350">
-            <input type="hidden" name="imagen" value="../img/Cross Ribbon Sailor Lace Collar Blouse_ Dear My Love.jpg">
+            <input type="hidden" name="id_producto" value="<?php echo $fila['id_producto']; ?>">
             <button type="submit" class="favorito">
                 <i class="fa-regular fa-heart"></i>
             </button>
         </form>
 
-                <form action="agregar_carrito.php" method="POST">
-                    <input type="hidden" name="nombre" value="<?php echo $fila['nombre_producto']; ?>">
-                    <input type="hidden" name="precio" value="<?php echo $fila['precio']; ?>">
-                    <input type="hidden" name="imagen" value="<?php echo $fila['imagen_principal']; ?>">
-                    <button type="submit" class="carrito">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
-                </form>
-            </div>
+        <!-- CARRITO -->
+        <form action="agregar_carrito.php" method="POST">
+            <input type="hidden" name="id_producto" value="<?php echo $fila['id_producto']; ?>">
+            <button type="submit" class="carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </form>
 
-            <!-- Información del producto -->
-            <div class="info">
-                <h3><?php echo $fila['nombre_producto']; ?></h3>
-                <p class="precio">$<?php echo number_format($fila['precio'], 2); ?></p>
-            </div>
-        </div>
+    </div>
+
+    <div class="info">
+        <h3><?php echo $fila['nombre_producto']; ?></h3>
+        <p class="precio">$<?php echo number_format($fila['precio'], 2); ?></p>
+    </div>
+
+</div>
+
         <?php
     }
 } else {
@@ -191,7 +194,7 @@ $conexion->close();
 ?>
 </section>
 </div>
-
+ 
     <!-- 👠 PIE DE PÁGINA -->
     <footer class="footer">
         <div class="footer-top">
