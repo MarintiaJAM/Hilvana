@@ -1,13 +1,12 @@
-.body {
+.producto-container {
     font-family: sans-serif;
     background-color: #f4f4f4;
-    margin: 0;
     padding: 20px;
 }
 
 .producto-detalle {
     max-width: 650px;
-    margin: 40px auto;
+    margin:1px auto;
     padding: 40px;
     background-color: #fff;
     border-radius: 8px;
@@ -21,8 +20,9 @@
 
 .producto-detalle p {
     margin: 6px 0;
-    font-size: 1em;
+    font-size: 18px;
 }
+
 
 .galeria {
     display: flex;
@@ -203,6 +203,11 @@ button:disabled,
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 15px;
+}
+
+.producto-precio-fav h2{
+    font-size: 20px;
 }
 
 .btn-fav {
