@@ -41,6 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <head>
   <meta charset="UTF-8">
   <title>Registro de usuario</title>
+  
+    <link rel="icon" type="image/png" href="../img/logo.jpg">
   <link rel="stylesheet" href="../css/estilo.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -86,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <p class="nav">
         <a href="registrar.php">Registrar</a>
         <a href="iniciar_sesion.php">Iniciar sesión</a>
-        <a href="salir.php">Salir</a>
+        <a href="inicio.php">Inicio</a>
       </p>
     </div>
   </div>

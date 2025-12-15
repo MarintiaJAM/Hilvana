@@ -11,6 +11,7 @@ require_once "conexion_usuarios.php";
 <head>
   <meta charset="UTF-8">
   <title>Información</title>
+  <link rel="icon" type="image/png" href="../img/logo.jpg">
 
   <!-- 💅 Fuentes y estilos -->
     <!-- Fuente principal desde Google Fonts -->

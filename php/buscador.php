@@ -144,13 +144,14 @@ if ($resultado && $resultado->num_rows > 0) {
                 <i class="fas fa-times"></i>
             </button>
             <ul>
-                <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Guia de tallas</a></li>
-                <li><a href="#"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Problemas</a></li>
-                <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Terminos y condiciones</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+                <li><a href="../php/inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+              <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
                 <div class="Bot" id="Habilitar_bot">
         <section>
     <button onclick="Habilitar_bot();" id="boton_bot">Habilitar bot</button>

@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Acceso requerido</title>
+  
+    <link rel="icon" type="image/png" href="../img/logo.jpg">
   <style>
 
 .modal-fondo {
