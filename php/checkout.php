@@ -10,11 +10,19 @@ if (!isset($_SESSION['usuario_id'])) {
 // Recuperar carrito
 $carrito = $_SESSION['carrito'] ?? [];
 
+// Asegurar que cada producto tenga cantidad
+foreach ($carrito as $i => $item) {
+  if (!isset($carrito[$i]['cantidad'])) {
+    $carrito[$i]['cantidad'] = 1;
+  }
+}
+
 // Calcular totales
 $total = 0;
 foreach ($carrito as $item) {
   $total += $item['precio'] * $item['cantidad'];
 }
+
 $envio = ($total < 500 && $total > 0) ? 70 : 0;
 $total_final = $total + $envio;
 
@@ -23,16 +31,38 @@ $paso = isset($_GET['paso']) ? intval($_GET['paso']) : 1;
 
 // Procesar formularios
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  // PASO 1 -> Datos perosnales
   if ($paso === 1) {
     $_SESSION['datos'] = $_POST;
     header("Location: checkout.php?paso=2");
     exit;
-  } elseif ($paso === 2) {
+  }
+   
+  //PASO 2 -> Envio
+  elseif ($paso === 2) {
     $_SESSION['envio'] = $_POST;
     header("Location: checkout.php?paso=3");
     exit;
-  } elseif ($paso === 3) {
+  }
+  
+  // PASO 3 -> Pago
+  elseif ($paso === 3) {
+
     $_SESSION['pago'] = $_POST;
+
+    // 🎉 GUARDAR COMPRA ANTES DE DESTRUIR CALC
+    if (!isset($_SESSION['compras'])) {
+      $_SESSION['compras'] = [];
+    }
+
+    $_SESSION['compras'][] = [
+      'items' => $carrito,
+      'total' => $total_final,
+      'fecha' => date("Y-m-d H:i:s")
+    ];
+
+    // HTML que confirma si la compra se realizo con exito
     echo '<!DOCTYPE html>
     <html lang="es">
     <head>
@@ -50,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="carrusel-productos">
           <button class="flecha izquierda" onclick="moverCarrusel(-1)">←</button>
           <div class="contenedor-productos" id="carrusel">';
+    
     foreach ($carrito as $item) {
       echo '<div class="producto">
               <img src="' . htmlspecialchars($item['imagen']) . '" alt="' . htmlspecialchars($item['nombre']) . '">
@@ -58,6 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <p class="precio">$' . number_format($item['precio'], 2) . ' MXN</p>
             </div>';
     }
+
     echo '</div>
           <button class="flecha derecha" onclick="moverCarrusel(1)">→</button>
         </div>
@@ -67,11 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <p>Envío: ' . ($envio > 0 ? "$70 MXN" : "Gratis") . '</p>
           <p><strong>Total: $' . number_format($total_final, 2) . ' MXN</strong></p>
         </div>
+
         <div class="botones">
           <a href="inicio.php" class="btn">Volver al inicio</a>
         </div>
+
       </div>
     </div>
+
     <script>
       function moverCarrusel(direccion) {
         const carrusel = document.getElementById("carrusel");
@@ -81,7 +116,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
     </body>
     </html>';
-    session_destroy();
+    // 🔥 DESPUÉS de guardar y mostrar → destruir carrito
+    unset($_SESSION['carrito']);
+    
     exit;
   }
 }
