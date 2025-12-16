@@ -305,6 +305,20 @@ require_once "conexion_usuarios.php";
                     <td></td>
                 </tr>
                 <tr>
+                    <td>
+                    +Se arreglo la funcion de facoritos.</br>
+                    +Se soluciono un problema con el guardado de productos en le carrito.</br>
+                    +Ahora en el perfil se ven los productos de favoritos.</br>
+                    +Se empezo a documentar el codigo.</td>
+                    <td>16 de Diciembre,2025</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td></td>
                     <td></td>
                     <td></td>
