@@ -1,48 +1,69 @@
 <?php
 
+// Inicia la sesión solo si no existe una activa
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Importa el archivo de conexión para usuarios (posiblemente maneja sesiones o permisos)
 require_once "conexion_usuarios.php";
 
+// Crea una conexión directa a la base de datos 'tienda_ropa'
 $conexion = new mysqli("localhost", "root", "", "tienda_ropa");
+
+// Verifica si hubo error al conectar
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
+// Sanitiza los parámetros recibidos por GET para evitar inyección SQL
 $query = $conexion->real_escape_string($_GET['query'] ?? '');
 $categoria_id = $conexion->real_escape_string($_GET['categoria_id'] ?? '');
 $color = $conexion->real_escape_string($_GET['color'] ?? '');
 $talla = $conexion->real_escape_string($_GET['talla'] ?? '');
 
+// Arreglo donde se irán acumulando las condiciones dinámicas del filtro
 $condiciones = [];
 
+// Si el usuario escribió un texto de búsqueda, se filtra por nombre o descripción
 if ($query !== '') {
     $condiciones[] = "(productos.nombre_producto LIKE '%$query%' OR productos.descripcion LIKE '%$query%')";
 }
+
+// Si se seleccionó una categoría, se agrega al filtro
 if ($categoria_id !== '') {
     $condiciones[] = "productos.categoria_id = '$categoria_id'";
 }
+
+// Si se seleccionó un color, se agrega al filtro
 if ($color !== '') {
     $condiciones[] = "producto_colores.color = '$color'";
 }
+
+// Si se seleccionó una talla, se agrega al filtro
 if ($talla !== '') {
     $condiciones[] = "producto_tallas.talla = '$talla'";
 }
 
+// Consulta base con JOINs para obtener productos, su categoría, tallas y colores
 $sql = "SELECT DISTINCT productos.*, categorias.nombre_categoria
         FROM productos
         LEFT JOIN categorias ON productos.categoria_id = categorias.id_categoria
         LEFT JOIN producto_tallas ON productos.id_producto = producto_tallas.id_producto
         LEFT JOIN producto_colores ON productos.id_producto = producto_colores.id_producto";
 
+// Si existen condiciones, se agregan dinámicamente al WHERE
 if (count($condiciones) > 0) {
     $sql .= " WHERE " . implode(" AND ", $condiciones);
 }
 
+// Ejecuta la consulta final
 $resultado = $conexion->query($sql);
+
+// Arreglo donde se guardarán los resultados obtenidos
 $resultados = [];
+
+// Si la consulta devolvió filas, se almacenan en el arreglo
 if ($resultado && $resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         $resultados[] = $fila;
