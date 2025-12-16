@@ -339,3 +339,69 @@ BOTONES DE CARRITO, LOGIN Y FAVORITOS
   justify-content: space-between;
   gap: 20px;
 }
+
+
+/*PIE DE PÁGINA*/
+.footer {
+  background-color: #f5f5f5;
+  color: #333;
+  font-family: sans-serif;
+  padding: 40px 20px;
+  width: 100%;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.footer-column {
+  flex: 1 1 200px;
+}
+
+.footer-column h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 13px;
+  transition: color 0.3s;
+}
+.footer-column ul li a:hover {
+  color: #000;
+}
+
+/* Parte inferior del footer */
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* Selector de país e idioma */
+.country-selector a {
+  text-decoration: none;
+  color: #333;
+  margin-right: 10px;
+}
+.country-selector a:hover {
+  text-decoration: underline;
+}

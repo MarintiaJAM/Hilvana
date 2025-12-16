@@ -144,14 +144,15 @@ if ($resultado && $resultado->num_rows > 0) {
                 <i class="fas fa-times"></i>
             </button>
             <ul>
-                <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Guia de tallas</a></li>
-                <li><a href="#"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Problemas</a></li>
-                <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Terminos y condiciones</a></li>
-                <li><a href="#"><i class="fas fa-info-circle"></i> Privacidad</a></li>
-                <div class="Bot" id="Habilitar_bot">
+                <li><a href="../php/inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+              <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
+              <div class="Bot" id="Habilitar_bot">
         <section>
     <button onclick="Habilitar_bot();" id="boton_bot">Habilitar bot</button>
 </section>
@@ -171,13 +172,17 @@ if ($resultado && $resultado->num_rows > 0) {
             <option value="">Todas las categorías</option>
             <option value="1" <?php if ($categoria_id == '1') echo 'selected'; ?>>PLAYERAS</option>
             <option value="2" <?php if ($categoria_id == '2') echo 'selected'; ?>>CONJUNTOS</option>
-            <option value="3" <?php if ($categoria_id == '3') echo 'selected'; ?>>VESTIDOS Y FALDAS</option>
-            <option value="4" <?php if ($categoria_id == '4') echo 'selected'; ?>>PANTALONES Y SHORTS</option>
+            <option value="3" <?php if ($categoria_id == '3') echo 'selected'; ?>>VESTIDOS</option>
+            <option value="4" <?php if ($categoria_id == '4') echo 'selected'; ?>>PANTALONES</option>
             <option value="5" <?php if ($categoria_id == '5') echo 'selected'; ?>>BLUSAS</option>
             <option value="6" <?php if ($categoria_id == '6') echo 'selected'; ?>>LICENCIAS</option>
             <option value="7" <?php if ($categoria_id == '7') echo 'selected'; ?>>SUDADERAS</option>
             <option value="8" <?php if ($categoria_id == '8') echo 'selected'; ?>>CHAMARRAS</option>
-            <option value="9" <?php if ($categoria_id == '9') echo 'selected'; ?>>ACCESORIOS</option>
+            <option value="9" <?php if ($categoria_id == '9') echo 'selected'; ?>>FALDAS</option>
+            <option value="10" <?php if ($categoria_id == '10') echo 'selected'; ?>>SHORTS</option>
+            <option value="11" <?php if ($categoria_id == '11') echo 'selected'; ?>>ACCESORIOS</option>
+            <option value="12" <?php if ($categoria_id == '12') echo 'selected'; ?>>TOPS</option>
+            <option value="13" <?php if ($categoria_id == '13') echo 'selected'; ?>>BOLSAS</option>
         </select>
 
         <select name="talla">
@@ -195,6 +200,10 @@ if ($resultado && $resultado->num_rows > 0) {
             <option value="Azul" <?php if ($color == 'Azul') echo 'selected'; ?>>Azul</option>
             <option value="Azul y negro" <?php if ($color == 'Azul y negro') echo 'selected'; ?>>Azul y negro</option>
             <option value="Rosa y blanco" <?php if ($color == 'Rosa y blanco') echo 'selected'; ?>>Rosa y blanco</option>
+            <option value="Negro y rojo" <?php if ($color == 'Negro y rojo') echo 'selected'; ?>>Negro y rojo</option>
+            <option value="Negro" <?php if ($color == 'Negro') echo 'selected'; ?>>Negro</option>
+            <option value="Vino" <?php if ($color == 'Vino') echo 'selected'; ?>>Vino</option>
+            <option value="Café" <?php if ($color == 'Café') echo 'selected'; ?>>Café</option>
         </select>
 
         <button type="submit">Buscar</button>
@@ -222,15 +231,15 @@ if ($resultado && $resultado->num_rows > 0) {
                 <?php endforeach; ?>
             </div>
                 </div>
-            
-            <?php
+
+          <?php
 $sql = "SELECT * FROM productos";
 $resultado = $conexion->query($sql);
 
-echo "<p>Total de productos encontrados: " . $resultado->num_rows . "</p>";
+echo "<p>" . "</p>";
 ?>
         <?php else: ?>
-            <p>No se encontraron resultados.</p>
+            <p>No se encontraron resultados</p>
         <?php endif; ?>
     <?php endif; ?>
 
@@ -243,6 +252,52 @@ document.getElementById('categoria_id').addEventListener('change', function() {
     }
 });
 </script>
+
+
+<!-- 👠 PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="footer-top">
+            <!-- Columna 1 -->
+            <div class="footer-column">
+                <h4>Servicio al cliente</h4>
+                <ul>
+                    <li><a href="#">Ayuda y contacto</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="footer-column">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra historia</a></li>
+                    <li><a href="#">Información de la corporación</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3 -->
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Parte inferior del pie -->
+        <div class="footer-bottom">
+            <div class="country-selector">
+                <a href="#">Mexico</a> | <a href="#">Español</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 JMA HILVANA. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
+
 
 </body>
 <script src="../menujs/jsmenu.js"></script>

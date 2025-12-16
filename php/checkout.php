@@ -32,21 +32,21 @@ $paso = isset($_GET['paso']) ? intval($_GET['paso']) : 1;
 // Procesar formularios
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  // PASO 1 → Datos personales
+  // PASO 1 -> Datos perosnales
   if ($paso === 1) {
     $_SESSION['datos'] = $_POST;
     header("Location: checkout.php?paso=2");
     exit;
   }
-
-  // PASO 2 → Método de envío
+   
+  //PASO 2 -> Envio
   elseif ($paso === 2) {
     $_SESSION['envio'] = $_POST;
     header("Location: checkout.php?paso=3");
     exit;
   }
-
-  // PASO 3 → Pago (finalizar compra)
+  
+  // PASO 3 -> Pago
   elseif ($paso === 3) {
 
     $_SESSION['pago'] = $_POST;
@@ -62,12 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       'fecha' => date("Y-m-d H:i:s")
     ];
 
-    // HTML de compra realizada
+    // HTML que confirma si la compra se realizo con exito
     echo '<!DOCTYPE html>
     <html lang="es">
     <head>
       <meta charset="UTF-8">
       <title>Compra exitosa</title>
+      <link rel="icon" type="image/png" href="../img/logo.jpg">
       <link rel="stylesheet" href="../css/checkout.css">
     </head>
     <body>
@@ -79,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="carrusel-productos">
           <button class="flecha izquierda" onclick="moverCarrusel(-1)">←</button>
           <div class="contenedor-productos" id="carrusel">';
-
+    
     foreach ($carrito as $item) {
       echo '<div class="producto">
               <img src="' . htmlspecialchars($item['imagen']) . '" alt="' . htmlspecialchars($item['nombre']) . '">
@@ -109,27 +110,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script>
       function moverCarrusel(direccion) {
         const carrusel = document.getElementById("carrusel");
-        carrusel.scrollBy({ left: direccion * 300, behavior: "smooth" });
+        const ancho = carrusel.offsetWidth;
+        carrusel.scrollBy({ left: direccion * ancho * 0.8, behavior: "smooth" });
       }
     </script>
-
-    </body></html>';
-
+    </body>
+    </html>';
     // 🔥 DESPUÉS de guardar y mostrar → destruir carrito
     unset($_SESSION['carrito']);
-
+    
     exit;
   }
 }
 ?>
-
-<!-- (desde aquí continúa tu HTML original tal cual lo tenías)… -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Checkout</title>
+  <link rel="icon" type="image/png" href="../img/logo.jpg">
   <link rel="stylesheet" href="../css/checkout.css">
 </head>
 <body>
@@ -180,33 +179,84 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <button type="submit" class="btn">Continuar a Envío</button>
         </div>
       </form>
-    <?php elseif ($paso === 2): ?>
-      <h2>2. Envío</h2>
-      <form method="post">
-        <label><input type="radio" name="tipo_envio" value="estandar" required> Envío estándar</label>
-        <label><input type="radio" name="tipo_envio" value="recoleccion"> Punto de recolección</label>
-        <label><input type="radio" name="tipo_envio" value="express"> Envío express</label>
-        <div class="botones">
-          <a href="inicio.php" class="btn">← Inicio</a>
-          <a href="checkout.php?paso=1" class="btn">← Volver a Datos</a>
-          <button type="submit" class="btn">Continuar a Pago</button>
-        </div>
-      </form>
-    <?php elseif ($paso === 3): ?>
-      <h2>3. Pago</h2>
-      <form method="post">
-        <label><input type="radio" name="metodo_pago" value="tarjeta" required onclick="mostrarTarjeta(true)"> Tarjeta de crédito/débito</label>
-        <label><input type="radio" name="metodo_pago" value="oxxo" onclick="mostrarTarjeta(false)"> Efectivo en Oxxo</label>
-        <div id="datos-tarjeta" style="display:none; margin-top:10px;">
-          <label>Número de tarjeta: <input type="text" name="numero_tarjeta"></label>
-        </div>
-        <div class="botones">
-          <a href="inicio.php" class="btn">← Inicio</a>
-          <a href="checkout.php?paso=2" class="btn">← Volver a Envío</a>
-          <button type="submit" class="btn">Finalizar compra</button>
-        </div>
-      </form>
-    <?php endif; ?>
+   <?php elseif ($paso === 2): ?>
+  <h2>2. Envío</h2>
+
+  <form method="post">
+
+    <div class="opciones-envio">
+
+      <label class="opcion-envio">
+        <span>Envío estándar</span>
+        <input type="radio" name="tipo_envio" value="estandar" required>
+      </label>
+
+      <label class="opcion-envio">
+        <span>Punto de recolección</span>
+        <input type="radio" name="tipo_envio" value="recoleccion">
+      </label>
+
+      <label class="opcion-envio">
+        <span>Envío express</span>
+        <input type="radio" name="tipo_envio" value="express">
+      </label>
+
+    </div>
+
+    <div class="botones">
+      <a href="inicio.php" class="btn">← Inicio</a>
+      <a href="checkout.php?paso=1" class="btn">← Volver a Datos</a>
+      <button type="submit" class="btn">Continuar a Pago</button>
+    </div>
+
+  </form>
+   <?php elseif ($paso === 3): ?>
+  <h2>3. Pago</h2>
+
+  <form method="post">
+
+    <div class="opciones-envio">
+
+      <label class="opcion-envio">
+        <span>Tarjeta de crédito / débito</span>
+        <input 
+          type="radio" 
+          name="metodo_pago" 
+          value="tarjeta" 
+          required 
+          onclick="mostrarTarjeta(true)"
+        >
+      </label>
+
+      <label class="opcion-envio">
+        <span>Efectivo en Oxxo</span>
+        <input 
+          type="radio" 
+          name="metodo_pago" 
+          value="oxxo" 
+          onclick="mostrarTarjeta(false)"
+        >
+      </label>
+
+    </div>
+
+       <!-- Datos tarjeta -->
+    <div id="datos-tarjeta" class="datos-tarjeta">
+      <label>
+        Número de tarjeta
+        <input type="text" name="numero_tarjeta" placeholder="**** **** **** ****">
+      </label>
+    </div>
+
+    <div class="botones">
+      <a href="inicio.php" class="btn">← Inicio</a>
+      <a href="checkout.php?paso=2" class="btn">← Volver a Envío</a>
+      <button type="submit" class="btn">Finalizar compra</button>
+    </div>
+
+  </form>
+<?php endif; ?>
+
 
   </div>
 </div>

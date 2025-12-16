@@ -107,11 +107,15 @@ if (empty($usuario['foto'])) {
             <i class="fas fa-times"></i>
         </button>
         <ul>
-            <li><a href="inicio.html"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="#"><i class="fas fa-tshirt"></i> Productos</a></li>
-            <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
-            <li><a href="#"><i class="fas fa-phone"></i> Contacto</a></li>
-        </ul>
+            <li><a href="../php/inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
+              <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+              <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
+            </ul>
     </div>
 
     <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
@@ -179,6 +183,50 @@ if (empty($usuario['foto'])) {
   </div>
 
 </div>
+
+<!-- 👠 PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="footer-top">
+            <!-- Columna 1 -->
+            <div class="footer-column">
+                <h4>Servicio al cliente</h4>
+                <ul>
+                    <li><a href="#">Ayuda y contacto</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Pedidos</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="footer-column">
+                <h4>Sobre Nosotros</h4>
+                <ul>
+                    <li><a href="#">Nuestra historia</a></li>
+                    <li><a href="#">Información de la corporación</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3 -->
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Políticas de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Parte inferior del pie -->
+        <div class="footer-bottom">
+            <div class="country-selector">
+                <a href="#">Mexico</a> | <a href="#">Español</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 JMA HILVANA. Todos los derechos reservados.
+                </div>
+            </div>
+        </footer>
 
 <script src="../JavaScript/perfil.js"></script>
 <script src="../menujs/jsmenu.js"></script>
