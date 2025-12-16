@@ -168,12 +168,16 @@ if ($resultado->num_rows > 0) {
         </form>
 
         <!-- CARRITO -->
-        <form action="agregar_carrito.php" method="POST">
-            <input type="hidden" name="id_producto" value="<?php echo $fila['id_producto']; ?>">
-            <button type="submit" class="carrito">
+        <form action="agregar_carrito.php" method="POST" class="add-cart-form">
+    <input type="hidden" name="nombre" value="<?php echo htmlspecialchars($fila['nombre_producto']); ?>">
+    <input type="hidden" name="precio" value="<?php echo (float)$fila['precio']; ?>">
+    <input type="hidden" name="imagen" value="<?php echo htmlspecialchars($fila['imagen_principal']); ?>">
+
+    <button type="submit" class="carrito">
                 <i class="fa-solid fa-cart-shopping"></i>
             </button>
-        </form>
+</form>
+
 
     </div>
 
