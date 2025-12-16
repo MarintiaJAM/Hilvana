@@ -1,31 +1,59 @@
 <?php
-session_start();
-require "config.php"; // conexión a jma_hilvana con PDO
-
-$id_usuario = 1; // temporal
-$id_producto = $_POST['id_producto'];
-$nombre = $_POST['nombre'];
-$precio = $_POST['precio'];
-$imagen = $_POST['imagen'];
-
-// ¿Ya existe?
-$sql = $conexion->prepare("SELECT id FROM favoritos WHERE id_usuario = ? AND id_producto = ?");
-$sql->execute([$id_usuario, $id_producto]);
-
-if ($sql->rowCount() > 0) {
-    // Eliminar
-    $del = $conexion->prepare("DELETE FROM favoritos WHERE id_usuario = ? AND id_producto = ?");
-    $del->execute([$id_usuario, $id_producto]);
-} else {
-    // Agregar
-    $add = $conexion->prepare("
-        INSERT INTO favoritos (id_usuario, id_producto, fecha_agregado, nombre, precio, imagen)
-        VALUES (?, ?, NOW(), ?, ?, ?)
-    ");
-    $add->execute([$id_usuario, $id_producto, $nombre, $precio, $imagen]);
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
 
-header("Location: " . $_SERVER["HTTP_REFERER"]);
+// inicializar la lista de favoritos si no existe
+if (!isset($_SESSION['favoritos'])) {
+    $_SESSION['favoritos'] = [];
+}
+
+// validar que llegó el id del producto
+if (!isset($_POST['id_producto'])) {
+    header("Location: inicio.php");
+    exit;
+}
+
+$id_producto = (int)$_POST['id_producto'];
+
+// conexión a tienda_ropa (donde están los productos)
+$conexion_tienda = new mysqli("localhost", "root", "", "tienda_ropa");
+if ($conexion_tienda->connect_error) {
+    die("Error de conexión: " . $conexion_tienda->connect_error);
+}
+
+// obtener datos del producto
+$sql = $conexion_tienda->prepare("SELECT id_producto, nombre_producto, precio, imagen_principal FROM productos WHERE id_producto = ?");
+$sql->bind_param("i", $id_producto);
+$sql->execute();
+$result = $sql->get_result();
+$producto = $result->fetch_assoc();
+
+// si no existe el producto, regresar
+if (!$producto) {
+    header("Location: inicio.php");
+    exit;
+}
+
+// evitar duplicados
+$ya_esta = false;
+foreach ($_SESSION['favoritos'] as $fav) {
+    if ($fav['id_producto'] == $producto['id_producto']) {
+        $ya_esta = true;
+        break;
+    }
+}
+
+if (!$ya_esta) {
+    $_SESSION['favoritos'][] = [
+        'id_producto' => $producto['id_producto'],
+        'nombre'      => $producto['nombre_producto'],
+        'precio'      => $producto['precio'],
+        'imagen'      => $producto['imagen_principal']
+    ];
+}
+
+// ✅ REGRESAR A LA MISMA PÁGINA DONDE ESTABA EL USUARIO
+header("Location: " . $_SERVER['HTTP_REFERER']);
 exit;
-?>
 

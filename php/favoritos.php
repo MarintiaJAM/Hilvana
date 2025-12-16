@@ -1,45 +1,53 @@
 <?php
-// Verifica si la sesión no ha sido iniciada y la inicia
+/******************************************************
+ * FAVORITOS.PHP
+ * Funciona igual que carrito.php pero para favoritos.
+ * Usa únicamente $_SESSION para almacenar productos.
+ ******************************************************/
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-// Archivos de conexión a la base de datos
-require_once "conexion_usuarios.php";
-require_once "config.php"; // Conexión a la base de datos jma_hilvana
+// ✅ Inicializar favoritos si no existe
+if (!isset($_SESSION['favoritos'])) {
+    $_SESSION['favoritos'] = [];
+}
 
-// ID de usuario temporal (cuando exista login vendrá de la sesión)
-$id_usuario = 1;
+/******************************************************
+ * ✅ ELIMINAR UN FAVORITO INDIVIDUAL
+ ******************************************************/
+if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar' && isset($_POST['index'])) {
 
-// Obtener los favoritos del usuario
-$sql = $conexion->prepare("SELECT * FROM favoritos WHERE id_usuario = ?");
-$sql->execute([$id_usuario]);
-$favoritos = $sql->fetchAll(PDO::FETCH_ASSOC);
+    $index = $_POST['index'];
 
-// Eliminar un favorito
-if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar' && isset($_POST['id_producto'])) {
-    $id_producto = $_POST['id_producto'];
-
-    $sql = $conexion->prepare("DELETE FROM favoritos WHERE id_usuario = ? AND id_producto = ?");
-    $sql->execute([$id_usuario, $id_producto]);
+    if (isset($_SESSION['favoritos'][$index])) {
+        unset($_SESSION['favoritos'][$index]);
+        $_SESSION['favoritos'] = array_values($_SESSION['favoritos']); // Reindexar
+    }
 
     header("Location: favoritos.php");
     exit;
 }
 
-// Vaciar todos los favoritos
+/******************************************************
+ * ✅ VACIAR TODOS LOS FAVORITOS
+ ******************************************************/
 if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
-    $sql = $conexion->prepare("DELETE FROM favoritos WHERE id_usuario = ?");
-    $sql->execute([$id_usuario]);
+
+    unset($_SESSION['favoritos']);
 
     header("Location: favoritos.php");
     exit;
 }
+
+// ✅ Obtener favoritos actuales
+$favoritos = $_SESSION['favoritos'];
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos - JMA Hilvana</title>
@@ -56,12 +64,10 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
 <body>
 
 <header>
-    <!-- Barra de anuncio -->
     <nav class="top-bar-anuncio">
         <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
     </nav>
 
-    <!-- Menú principal -->
     <nav class="menu" id="Menu">
         <button class="hamburger-btn" id="hamburgerBtn">
             <i class="fas fa-bars"></i>
@@ -83,7 +89,6 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
                     <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
                         <i class="fas fa-search"></i>
                     </button>
-                    <div class="search-suggestions" id="searchSuggestions"></div>
                 </div>
             </div>
 
@@ -95,53 +100,37 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
 
             <div class="Login">
                 <?php if (isset($_SESSION['usuario_id'])): ?>
-                    <a href="perfil.php" class="login-button">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <a href="perfil.php" class="login-button"><i class="fas fa-user"></i></a>
                 <?php else: ?>
-                    <a href="registrar.php" class="login-buton">
-                        <i class="fas fa-user"></i>
-                    </a>
+                    <a href="registrar.php" class="login-buton"><i class="fas fa-user"></i></a>
                 <?php endif; ?>
             </div>
 
             <div class="favorites">
-                <button type="button" id="favorites-btn">
+                <a href="favoritos.php" class="favorites">
                     <i class="fa-solid fa-heart"></i>
-                </button>
+                </a>
             </div>
         </div>
     </nav>
-
-    <div id="sideMenu" class="side-menu">
-        <button class="close-btn" onclick="toggleSideMenu()">
-            <i class="fas fa-times"></i>
-        </button>
-        <ul>
-            <li><a href="../php/inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
-            <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
-            <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
-        </ul>
-    </div>
-
-    <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
 </header>
 
 <section class="favoritos-layout">
 
+    <!-- IZQUIERDA: LISTA DE FAVORITOS -->
     <div class="favoritos-left">
+
+        <h2 style="font-weight:700; color:#333;">❤ Tus Favoritos</h2>
 
         <?php if (empty($favoritos)): ?>
             <p style="text-align:center;">No tienes productos en favoritos. ❤</p>
+
         <?php else: ?>
 
-            <?php foreach ($favoritos as $producto): ?>
+            <?php foreach ($favoritos as $index => $producto): ?>
                 <div class="producto-card">
+
+                    <!-- Información del producto -->
                     <div class="producto-info">
                         <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
                         <div class="producto-texto">
@@ -150,14 +139,17 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
                         </div>
                     </div>
 
+                    <!-- Botón eliminar -->
                     <form method="POST">
-                        <input type="hidden" name="id_producto" value="<?= $producto['id_producto'] ?>">
+                        <input type="hidden" name="index" value="<?= $index ?>">
                         <input type="hidden" name="accion" value="eliminar">
                         <button type="submit" class="btn-eliminar">Eliminar</button>
                     </form>
+
                 </div>
             <?php endforeach; ?>
 
+            <!-- Botones inferiores -->
             <div class="favoritos-botones">
                 <form method="POST">
                     <input type="hidden" name="accion" value="vaciar_favoritos">
@@ -172,6 +164,7 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
         <?php endif; ?>
     </div>
 
+    <!-- DERECHA: INFORMACIÓN DE CUENTA -->
     <div class="favoritos-right">
         <h2>Tu cuenta</h2>
         <p>Para guardar tus prendas y realizar compras, inicia sesión o crea una cuenta.</p>
@@ -220,7 +213,6 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
     </div>
 </footer>
 
-<script src="../JavaScript/script.js"></script>
 <script src="../menujs/jsmenu.js"></script>
 
 </body>
