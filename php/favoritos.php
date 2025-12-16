@@ -1,28 +1,33 @@
 <?php
+// Verifica si la sesión no ha sido iniciada y la inicia
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Archivos de conexión a la base de datos
 require_once "conexion_usuarios.php";
-require_once "config.php"; // Conexión a jma_hilvana
+require_once "config.php"; // Conexión a la base de datos jma_hilvana
 
-$id_usuario = 1; // Temporal
+// ID de usuario temporal (cuando exista login vendrá de la sesión)
+$id_usuario = 1;
 
-// Traer favoritos del usuario
+// Obtener los favoritos del usuario
 $sql = $conexion->prepare("SELECT * FROM favoritos WHERE id_usuario = ?");
 $sql->execute([$id_usuario]);
 $favoritos = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-// Eliminar favorito
+// Eliminar un favorito
 if (isset($_POST['accion']) && $_POST['accion'] === 'eliminar' && isset($_POST['id_producto'])) {
     $id_producto = $_POST['id_producto'];
+
     $sql = $conexion->prepare("DELETE FROM favoritos WHERE id_usuario = ? AND id_producto = ?");
     $sql->execute([$id_usuario, $id_producto]);
+
     header("Location: favoritos.php");
     exit;
 }
 
-// Vaciar favoritos
+// Vaciar todos los favoritos
 if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
     $sql = $conexion->prepare("DELETE FROM favoritos WHERE id_usuario = ?");
     $sql->execute([$id_usuario]);
@@ -34,14 +39,15 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos - JMA Hilvana</title>
     <link rel="icon" type="image/png" href="../img/logo.jpg">
 
-    <!-- Estilos del menú -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/carrito.css"> <!-- Aquí irá tu nuevo CSS -->
+    <link rel="stylesheet" href="../css/carrito.css">
     <link rel="stylesheet" href="../menu lateral css/menu.css">
 
     <!-- Iconos -->
@@ -50,10 +56,12 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
 <body>
 
 <header>
+    <!-- Barra de anuncio -->
     <nav class="top-bar-anuncio">
         <p>Envío y devoluciones gratis a partir de $800 pesos mexicanos</p>
     </nav>
 
+    <!-- Menú principal -->
     <nav class="menu" id="Menu">
         <button class="hamburger-btn" id="hamburgerBtn">
             <i class="fas fa-bars"></i>
@@ -71,13 +79,13 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
 
         <div class="top-bar">
             <div class="search-bar">
-                    <div class="search-container">
-                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div class="search-suggestions" id="searchSuggestions"></div>
-                    </div>
+                <div class="search-container">
+                    <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <div class="search-suggestions" id="searchSuggestions"></div>
                 </div>
+            </div>
 
             <div class="car-shopping">
                 <a href="carrito.php" id="car-shopping-btn">
@@ -85,17 +93,17 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
                 </a>
             </div>
 
-             <!-- Botón de Inicio de Sesión -->
-                <div class="Login">
-                    <?php if (isset($_SESSION['usuario_id'])): ?>
-                        <!-- Si el usuario YA inició sesión -->
-                        <a href="perfil.php" class="login-button"> <i class="fas fa-user"></i></a>
-                        <?php else: ?>
-                        <!-- Si el usuario NO ha iniciado sesión -->
-                        <a href="registrar.php" class="login-buton"> <i class="fas fa-user"></i></a>
-                        <?php endif; ?>
-
-                </div>
+            <div class="Login">
+                <?php if (isset($_SESSION['usuario_id'])): ?>
+                    <a href="perfil.php" class="login-button">
+                        <i class="fas fa-user"></i>
+                    </a>
+                <?php else: ?>
+                    <a href="registrar.php" class="login-buton">
+                        <i class="fas fa-user"></i>
+                    </a>
+                <?php endif; ?>
+            </div>
 
             <div class="favorites">
                 <button type="button" id="favorites-btn">
@@ -111,36 +119,28 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
         </button>
         <ul>
             <li><a href="../php/inicio.php"><i class="fas fa-home"></i> Inicio</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
-              <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
-              <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
-            </ul>
+            <li><a href="../Sitios extra/info.php?seccion=guia"><i class="fas fa-info-circle"></i> Guía de tallas</a></li>
+            <li><a href="../Sitios extra/info.php?seccion=productos"><i class="fas fa-tshirt"></i> Sobre nuestros productos</a></li>
+            <li><a href="../Sitios extra/info.php?seccion=problemas"><i class="fas fa-info-circle"></i> Problemas</a></li>
+            <li><a href="../Sitios extra/info.php?seccion=contacto"><i class="fas fa-phone"></i> Contacto</a></li>
+            <li><a href="../Sitios extra/info.php?seccion=terminos"><i class="fas fa-info-circle"></i> Términos y condiciones</a></li>
+            <li><a href="../Sitios extra/info.php?seccion=privacidad"><i class="fas fa-info-circle"></i> Privacidad</a></li>
+            <li><a href="../php/bitacora.php"><i class="fas fa-book"></i> Bitácora de cambios</a></li>
+        </ul>
     </div>
+
     <div id="overlay" class="overlay" onclick="toggleSideMenu()"></div>
 </header>
 
-
-<!-- ===========================================================
-                NUEVA ESTRUCTURA DE FAVORITOS
-=========================================================== -->
-
 <section class="favoritos-layout">
 
-    <!-- -------- LISTA IZQUIERDA ---------- -->
     <div class="favoritos-left">
 
         <?php if (empty($favoritos)): ?>
-
             <p style="text-align:center;">No tienes productos en favoritos. ❤</p>
-
         <?php else: ?>
 
             <?php foreach ($favoritos as $producto): ?>
-
                 <div class="producto-card">
                     <div class="producto-info">
                         <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="<?= htmlspecialchars($producto['nombre']) ?>">
@@ -150,17 +150,16 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
                         </div>
                     </div>
 
-                    <form method="POST" action="">
+                    <form method="POST">
                         <input type="hidden" name="id_producto" value="<?= $producto['id_producto'] ?>">
                         <input type="hidden" name="accion" value="eliminar">
                         <button type="submit" class="btn-eliminar">Eliminar</button>
                     </form>
                 </div>
-
             <?php endforeach; ?>
 
             <div class="favoritos-botones">
-                <form method="POST" action="">
+                <form method="POST">
                     <input type="hidden" name="accion" value="vaciar_favoritos">
                     <button type="submit" class="btn-vaciar">Vaciar Favoritos</button>
                 </form>
@@ -171,64 +170,55 @@ if (isset($_POST['accion']) && $_POST['accion'] === 'vaciar_favoritos') {
             </div>
 
         <?php endif; ?>
-
     </div>
 
-    <!-- -------- COLUMNA DERECHA ---------- -->
     <div class="favoritos-right">
         <h2>Tu cuenta</h2>
         <p>Para guardar tus prendas y realizar compras, inicia sesión o crea una cuenta.</p>
-    <a href="registrar.php">
-    <a href="registrar.php" class="btn-fav-crear">Crear cuenta</a>
-<a href="registrar.php">
+        <a href="registrar.php" class="btn-fav-crear">Crear cuenta</a>
         <a href="registrar.php" class="btn-fav-acceder">Acceder</a>
     </div>
 
 </section>
 
-<!-- 👠 PIE DE PÁGINA -->
-    <footer class="footer">
-        <div class="footer-top">
-            <!-- Columna 1 -->
-            <div class="footer-column">
-                <h4>Servicio al cliente</h4>
-                <ul>
-                    <li><a href="#">Ayuda y contacto</a></li>
-                    <li><a href="#">Cambios y devoluciones</a></li>
-                    <li><a href="#">Pedidos</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 2 -->
-            <div class="footer-column">
-                <h4>Sobre Nosotros</h4>
-                <ul>
-                    <li><a href="#">Nuestra historia</a></li>
-                    <li><a href="#">Información de la corporación</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 3 -->
-            <div class="footer-column">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Políticas de Privacidad</a></li>
-                    <li><a href="#">Terminos y Condiciones</a></li>
-                    <li><a href="#">Cookies</a></li>
-                </ul>
-            </div>
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-column">
+            <h4>Servicio al cliente</h4>
+            <ul>
+                <li><a href="#">Ayuda y contacto</a></li>
+                <li><a href="#">Cambios y devoluciones</a></li>
+                <li><a href="#">Pedidos</a></li>
+            </ul>
         </div>
 
-        <!-- Parte inferior del pie -->
-        <div class="footer-bottom">
-            <div class="country-selector">
-                <a href="#">Mexico</a> | <a href="#">Español</a>
-            </div>
-            <div class="copyright">
-                &copy; 2025 JMA HILVANA. Todos los derechos reservados.
-                </div>
-            </div>
-        </footer>
+        <div class="footer-column">
+            <h4>Sobre Nosotros</h4>
+            <ul>
+                <li><a href="#">Nuestra historia</a></li>
+                <li><a href="#">Información de la corporación</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Políticas de Privacidad</a></li>
+                <li><a href="#">Terminos y Condiciones</a></li>
+                <li><a href="#">Cookies</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="country-selector">
+            <a href="#">Mexico</a> | <a href="#">Español</a>
+        </div>
+        <div class="copyright">
+            &copy; 2025 JMA HILVANA. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
 
 <script src="../JavaScript/script.js"></script>
 <script src="../menujs/jsmenu.js"></script>
