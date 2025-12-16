@@ -47,14 +47,17 @@ VALUES
 ('Jogger Cargo de Nylon Café', 'Jogger café de nylon para hombre con bolsillos cargo', 'CH,M,G,EG', 'Café', 265.30, 50, 4, '../img/Joggercargo_nyloncafé1.webp', '../img/Joggercargo_nyloncafé2.webp'),
 ('Falda Tableada a Cuadros Negra', 'Falda corta tableada, a cuadros negro con blanco. Nueva colección diseñada para destacar en fiestas y reuniones.', 'ECH,CH,M,G', 'Negro', 244.30, 35, 9, '../img/FaldaTableada_cuadrosnegro1.webp', '../img/FaldaTableada_cuadrosnegro2.webp'),
 ('Falda Mini de PU Negra', 'Mini falda de PU, con bolsas cargo y cinturón. Nueva colección diseñada para destacar en fiestas y reuniones.', 'CH,M', 'Negro', 258.30, 43, 9, '../img/Faldamini_PUnegro1.webp', '../img/Faldamini_PUnegro2.webp'),
-('Top Estampado Negro', 'Top negro sin mangas, con alas de angel estampadas al frente. Descubre los tops que marcan tendencia esta temporada.', 'M,G,EG', 'Negro', 143.20, 56, 12, '../img/Topestampado_negro1.webp', '../img/Topestampado_negro2.webp'),
 ('Jeans Baggy Bleach Azul', 'Jeans baggy azul claro con efecto bleach.', 'CH,M,G', 'Azul', 279.20, 23, 4, '../img/JeansBaggy_beachazul1.webp', '../img/JeansBaggy_beachazul2.webp'),
-('Top Tejido sin Mangas Blanco', 'Top tejido blanco con cuello redondo y ruedo en semicircular.', 'ECH,CH,M,G', 'Blanco', 139.30, 49, 12, '../img/Toptejido_sinmangasblanco1.webp', '../img/Toptejido_sinmangasblanco2.webp'),
 ('Bermuda a Rayas Negra', 'Bermuda a rayas diplomáticas para hombre, moderno y perfecto para días relajados.', 'M,G', 'Negro', 209.30, 36, 10, '../img/Bermudarayas_negro1.webp', '../img/Bermudarayas_negro2.webp'),
 ('Playera Harry Potter Slytherin Negra', 'Playera negra para mujer, de manga corta y cuello redondo, con franjas en contraste blanco, licencia Warner Harry Potter Slytherin. En esta temporada, regala las licencias más creativas.', 'CH,M,G', 'Negro', 139.30, 29, 6, '../img/PlayeraHarryPotterS_negro1.webp', '../img/PlayeraHarryPotterS_negro2.webp'),
 ('Playera Kuromi Negra', 'Playera negra para mujer manga corta, estampado licencia Sanrio Kuromi.', 'M,G', 'Negro', 104.30, 67, 6, '../img/PlayeraKuromi_negro1.webp', '../img/PlayeraKuromi_negro2.webp'),
 ('Falda Hearth Shape Negra', 'Lo último en modo Jiari Kei, llevate esta falda y unete a este bello estilo', 'CH, M', 'Negro', 567.30, 34, 9, '../img/FaldaHearthShape1.webp', '../img/FaldaHearthShape2.webp'),
+
+--Estos me marcan error al quererlos agregar a la base de datos (julian)
+('Top Estampado Negro', 'Top negro sin mangas, con alas de angel estampadas al frente. Descubre los tops que marcan tendencia esta temporada.', 'M,G,EG', 'Negro', 143.20, 56, 12, '../img/Topestampado_negro1.webp', '../img/Topestampado_negro2.webp'),
+('Top Tejido sin Mangas Blanco', 'Top tejido blanco con cuello redondo y ruedo en semicircular.', 'ECH,CH,M,G', 'Blanco', 139.30, 49, 12, '../img/Toptejido_sinmangasblanco1.webp', '../img/Toptejido_sinmangasblanco2.webp'),
 ('Bolsa con Asa Corta y Larga Negra', 'Bolsa negra con asas cortas y largas, ideal para llevar todo lo que necesitas. Medidas aproximadas: 16 cm de Alto x 25 cm de Ancho x 8 cm de Profundidad.', 'Única', 'Negro', 239.20, 23, 13, '../img/BolsaAsacorta_larganegro1.webp', 'BolsaAsacorta_larganegro2.webp')
+
 --Para asignar talla a una prenda de ropa con su id de esa ropa
 INSERT INTO producto_tallas (id_producto, talla) VALUES
 (5, 'CH'),
