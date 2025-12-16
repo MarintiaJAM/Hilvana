@@ -1,11 +1,15 @@
 <?php
+// Iniciar la sesión si no está iniciada
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+// Incluir el archivo de conexión a la base de datos de usuarios
 require_once "conexion_usuarios.php";
 ?>
 
+
+<!--Página principal de inicio-->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -64,7 +68,7 @@ require_once "conexion_usuarios.php";
                 <!-- 🔍 Barra de búsqueda -->
                 <div class="search-bar">
                     <div class="search-container">
-                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'">
+                        <button type="button" id="searchButton" onclick="window.location.href='../php/buscador.php'"> 
                             <i class="fas fa-search"></i>
                         </button>
                         <div class="search-suggestions" id="searchSuggestions"></div>
@@ -131,16 +135,20 @@ require_once "conexion_usuarios.php";
         <section class="producto-container">
 
         <?php
+        // Conexión a la base de datos
 $conexion = new mysqli("localhost", "root", "", "tienda_ropa");
 
 if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
+    die("Error de conexión: " . $conexion->connect_error); //Manejo de error de conexión
 }
 
+//Consulta para obtener los productos
 $sql = "SELECT id_producto, nombre_producto, precio, imagen_principal, imagen_secundaria FROM productos";
-$resultado = $conexion->query($sql);
+$resultado = $conexion->query($sql); //Ejecutar la consulta
 
+// Verificar si hay productos y mostrarlos
 if ($resultado->num_rows > 0) {
+    // Recorrer los productos y mostrarlos
     while ($fila = $resultado->fetch_assoc()) {
         ?>
         <!-- 🛍️ PRODUCTO -->
@@ -149,7 +157,7 @@ if ($resultado->num_rows > 0) {
     <div class="imagen-container">
 
         <!-- LINK SOLO PARA LA IMAGEN -->
-        <a href="producto.php?id=<?php echo $fila['id_producto']; ?>" class="link-producto">
+        <a href="producto.php?id=<?php echo $fila['id_producto']; ?>" class="link-producto"> 
             <img src="<?php echo $fila['imagen_principal']; ?>" 
                  alt="<?php echo $fila['nombre_producto']; ?>" 
                  class="imagen principal">
@@ -191,6 +199,7 @@ if ($resultado->num_rows > 0) {
         <?php
     }
 } else {
+    //Hace un análisis de los datos disponibles y muestra un mensaje si no hay productos
     echo "<p>No hay productos disponibles.</p>";
 }
 
